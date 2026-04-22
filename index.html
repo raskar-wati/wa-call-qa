@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wati Quality Assurance Scorecards</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar" aria-label="Global navigation">
+        <div class="brand" aria-label="Wati">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">wati</span>
+        </div>
+
+        <nav class="top-actions" aria-label="Account actions">
+          <a class="quick-start" href="#">Quick start</a>
+          <button class="demo-button" type="button">Book a Demo</button>
+          <button class="icon-button with-dot" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 16v-5a6 6 0 0 0-12 0v5l-2 2h16l-2-2Z" />
+              <path d="M10 20h4" />
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Help">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 17h.01" />
+              <path d="M9.1 9a3 3 0 1 1 5.8 1c-.7 1.1-2.2 1.5-2.7 2.8" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" />
+              <path d="M4.9 15.5 3.8 13l1.1-2.5 2.6-.4.8-1.3-.9-2.5L9.8 5l2.2 1.5h1.6L15.8 5l2.4 1.3-.9 2.5.8 1.3 2.6.4 1.1 2.5-1.1 2.5-2.6.4-.8 1.3.9 2.5-2.4 1.3-2.2-1.5H12L9.8 21l-2.4-1.3.9-2.5-.8-1.3-2.6-.4Z" />
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 21a8 8 0 0 0-16 0" />
+              <circle cx="12" cy="8" r="4" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+
+      <div class="workspace">
+        <aside class="rail" aria-label="Primary navigation">
+          <button class="rail-item" type="button" aria-label="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8" /><path d="M5 10v10h14V10" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Inbox">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v13H7l-3 3V4Z" /><path d="M8 9h8" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Contacts">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-8 0v2" /><circle cx="12" cy="7" r="4" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Automations">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h5l2-7 2 14 2-7h5" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Broadcasts">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-7 8v5l-2 1v-6L4 5Z" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Tools">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7 3 3" /><path d="M5 19 19 5" /><path d="m8 5 2-2 2 2-2 2-2-2Z" /></svg>
+          </button>
+          <button class="rail-item active" type="button" aria-label="Analytics">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5" /><path d="M4 19h16" /><path d="M8 15v-4" /><path d="M12 15V8" /><path d="M16 15v-6" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Integrations">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8" /><path d="M7 7h.01" /><path d="M17 17h.01" /><rect x="3" y="3" width="8" height="8" rx="2" /><rect x="13" y="13" width="8" height="8" rx="2" /></svg>
+          </button>
+          <button class="rail-item" type="button" aria-label="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" /><path d="M4.9 15.5 3.8 13l1.1-2.5 2.6-.4.8-1.3-.9-2.5L9.8 5l2.2 1.5h1.6L15.8 5l2.4 1.3-.9 2.5.8 1.3 2.6.4 1.1 2.5-1.1 2.5-2.6.4-.8 1.3.9 2.5-2.4 1.3-2.2-1.5H12L9.8 21l-2.4-1.3.9-2.5-.8-1.3-2.6-.4Z" /></svg>
+          </button>
+        </aside>
+
+        <aside class="section-nav" aria-label="Analytics menu">
+          <p class="section-title">Analytics</p>
+          <a class="section-link" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9h9" /><path d="M21 12a9 9 0 1 1-9-9" /></svg>
+            Support
+          </a>
+          <a class="section-link" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10" /><path d="M9 20V4" /><path d="M14 20v-7" /><path d="M19 20V8" /></svg>
+            Sales
+          </a>
+          <a class="section-link" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" /></svg>
+            Customer Experience
+          </a>
+
+          <div class="section-group open">
+            <button class="group-trigger" type="button">
+              <span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.7a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.7.7a2 2 0 0 1 1.7 2Z" /></svg>
+                Calling
+              </span>
+              <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+            <div class="submenu">
+              <a href="#">Analytics</a>
+              <a class="selected" href="#">Quality Assurance</a>
+              <a href="#">Recordings</a>
+            </div>
+          </div>
+
+          <button class="group-trigger collapsed" type="button">
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5z" /><path d="M8 8h8" /><path d="M8 12h8" /><path d="M8 16h5" /></svg>
+              Others
+            </span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </button>
+        </aside>
+
+        <main class="content">
+          <section class="page-header list-view" aria-labelledby="page-title">
+            <h1 id="page-title">Quality Assurance</h1>
+            <a class="learn-more" href="#">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 17h.01" /><path d="M10.7 9.4a2 2 0 1 1 2.8 2.8c-.6.4-1 .9-1.1 1.8" /></svg>
+              Learn More
+            </a>
+          </section>
+
+          <nav class="tabs" aria-label="Quality assurance views">
+            <a class="current" href="#" data-qa-tab="overview">Overview</a>
+            <a href="#" data-qa-tab="scorecards">Scorecards</a>
+            <a href="#" data-qa-tab="coachable">Coachable Bits</a>
+            <a href="#" data-qa-tab="questions">Question Library</a>
+          </nav>
+
+          <section class="overview-panel list-view" aria-labelledby="overview-title" data-qa-panel="overview">
+            <div class="overview-toolbar">
+              <div>
+                <h2 id="overview-title">Support Inbound -- EMEA</h2>
+                <p><span class="live-dot"></span>Active · 1,207 calls graded</p>
+              </div>
+              <div class="overview-actions">
+                <button class="secondary-action" type="button">Export CSV</button>
+                <button class="publish-button" type="button">+ New scorecard</button>
+              </div>
+            </div>
+
+            <div class="overview-filters" aria-label="Overview filters">
+              <label>Date range
+                <select data-overview-range>
+                  <option value="30">Last 30 days</option>
+                  <option value="90">Last 90 days</option>
+                  <option value="180" selected>Last 6 months</option>
+                  <option value="365">Last year</option>
+                </select>
+              </label>
+              <label>Direction
+                <select data-agent-filter="direction">
+                  <option value="all">All calls</option>
+                  <option value="Inbound">Inbound</option>
+                  <option value="Outbound">Outbound</option>
+                </select>
+              </label>
+              <label>Team
+                <select data-agent-filter="team">
+                  <option value="all">All teams</option>
+                  <option value="APAC">APAC</option>
+                  <option value="EMEA">EMEA</option>
+                  <option value="Renewals">Renewals</option>
+                </select>
+              </label>
+              <label>Status
+                <select data-agent-filter="status">
+                  <option value="all">All statuses</option>
+                  <option value="High risk">High risk</option>
+                  <option value="Needs coaching">Needs coaching</option>
+                  <option value="On track">On track</option>
+                </select>
+              </label>
+            </div>
+
+            <section class="trend-card" aria-labelledby="trend-title">
+              <div class="trend-heading">
+                <div>
+                  <h3 id="trend-title">Performance trend</h3>
+                  <p>Track how teams and agents are scoring over time.</p>
+                </div>
+                <span data-call-count>895 calls graded</span>
+              </div>
+
+              <div class="metric-grid">
+                <article class="metric-card positive">
+                  <span>Overall score</span>
+                  <strong data-overview-score>81.0<small>%</small></strong>
+                  <p>+3.9 pts vs previous period</p>
+                </article>
+                <article class="metric-card positive">
+                  <span>Consistency</span>
+                  <strong>78.4<small>%</small></strong>
+                  <p>Most agents are scoring within a healthy range</p>
+                </article>
+                <article class="metric-card warning">
+                  <span>Coaching gap</span>
+                  <strong>18<small> pts</small></strong>
+                  <p>Distance between top and lowest performers</p>
+                </article>
+                <article class="metric-card positive">
+                  <span>Top performer average</span>
+                  <strong>93.2<small>%</small></strong>
+                  <p>Use as a practical benchmark for coaching</p>
+                </article>
+              </div>
+
+              <div class="trend-chart" aria-label="Score trend chart">
+                <svg viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true">
+                  <g class="grid-lines">
+                    <path d="M0 30H900" />
+                    <path d="M0 85H900" />
+                    <path d="M0 140H900" />
+                    <path d="M0 195H900" />
+                  </g>
+                  <polyline class="line line-team" points="0,82 70,78 140,68 210,74 280,72 350,60 420,76 490,66 560,70 630,58 700,62 770,54 840,59 900,48" />
+                  <polyline class="line line-target" points="0,110 70,108 140,101 210,109 280,105 350,99 420,111 490,102 560,104 630,98 700,101 770,99 840,103 900,94" />
+                  <polyline class="line line-risk" points="0,144 70,140 140,137 210,150 280,141 350,134 420,132 490,148 560,136 630,138 700,145 770,133 840,134 900,128" />
+                </svg>
+                <div class="chart-legend">
+                  <span><i class="team"></i>Team score</span>
+                  <span><i class="target"></i>Expected level</span>
+                  <span><i class="risk"></i>Needs coaching line</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="agent-table-card" aria-labelledby="agents-title">
+              <div class="table-heading">
+                <div>
+                  <h3 id="agents-title">Agent performance</h3>
+                  <p>Identify who is doing well, who needs coaching, and why.</p>
+                </div>
+                <input type="search" placeholder="Search agents" aria-label="Search agents" data-agent-search />
+              </div>
+
+              <table class="agent-table">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <th>Team</th>
+                    <th>Trend</th>
+                    <th>Weakest area</th>
+                    <th>Status</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody data-agent-table>
+                  <tr data-team="APAC" data-direction="Inbound" data-status="High risk">
+                    <td><span class="avatar">NA</span><strong>Noor Ahmed</strong><small>5 calls</small></td>
+                    <td>APAC Inbound</td>
+                    <td>Declining</td>
+                    <td>Closing &amp; Next Steps</td>
+                    <td><span class="agent-tag risk">High risk</span><span class="agent-tag fail">1 critical fail</span></td>
+                    <td><strong class="score-pill low">66%</strong></td>
+                  </tr>
+                  <tr data-team="EMEA" data-direction="Outbound" data-status="Needs coaching">
+                    <td><span class="avatar">TO</span><strong>Tom O'Brien</strong><small>5 calls</small></td>
+                    <td>EMEA Outbound</td>
+                    <td>Declining</td>
+                    <td>Closing &amp; Next Steps</td>
+                    <td><span class="agent-tag coach">Needs coaching</span><span class="agent-tag fail">1 critical fail</span></td>
+                    <td><strong class="score-pill mid">75%</strong></td>
+                  </tr>
+                  <tr data-team="APAC" data-direction="Outbound" data-status="On track">
+                    <td><span class="avatar">PS</span><strong>Priya Shah</strong><small>4 calls</small></td>
+                    <td>APAC Outbound</td>
+                    <td>Stable</td>
+                    <td>Compliance</td>
+                    <td><span class="agent-tag good">Doing well</span></td>
+                    <td><strong class="score-pill high">82%</strong></td>
+                  </tr>
+                  <tr data-team="APAC" data-direction="Inbound" data-status="Needs coaching">
+                    <td><span class="avatar">AR</span><strong>Ana Rossi</strong><small>4 calls</small></td>
+                    <td>APAC Inbound</td>
+                    <td>Stable</td>
+                    <td>Opening &amp; Discovery</td>
+                    <td><span class="agent-tag coach">Below team average</span></td>
+                    <td><strong class="score-pill low">66%</strong></td>
+                  </tr>
+                  <tr data-team="Renewals" data-direction="Outbound" data-status="On track">
+                    <td><span class="avatar">CM</span><strong>Carlos Mendes</strong><small>2 calls</small></td>
+                    <td>Renewals</td>
+                    <td>Improving</td>
+                    <td>Objection Handling</td>
+                    <td><span class="agent-tag good">Improving</span></td>
+                    <td><strong class="score-pill mid">77%</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+
+          <section class="scorecard-panel list-view" aria-labelledby="scorecards-title" data-qa-panel="scorecards" hidden>
+            <div class="scorecard-heading">
+              <h2 id="scorecards-title">Scorecards</h2>
+              <button class="build-button" type="button" data-open-builder>
+                <span aria-hidden="true">+</span>
+                Build
+              </button>
+            </div>
+
+            <div class="scorecard-list">
+              <article class="scorecard-row">
+                <div>
+                  <h3>Sales Outbound -- APAC <span class="status active">Active</span></h3>
+                  <p>842 calls graded</p>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </article>
+              <article class="scorecard-row">
+                <div>
+                  <h3>Sales Outbound -- EMEA <span class="status active">Active</span></h3>
+                  <p>915 calls graded</p>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </article>
+              <article class="scorecard-row">
+                <div>
+                  <h3>Sales Inbound -- North America <span class="status inactive">Inactive</span></h3>
+                  <p>320 calls graded</p>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </article>
+              <article class="scorecard-row">
+                <div>
+                  <h3>Support Outbound -- Latin America <span class="status draft">Draft</span></h3>
+                  <p>0 graded</p>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </article>
+            </div>
+          </section>
+
+          <section class="builder-view" aria-labelledby="builder-title" hidden>
+            <div class="builder-header">
+              <button class="back-button" type="button" data-close-builder aria-label="Back to scorecards">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
+              </button>
+              <div class="builder-title">
+                <h1 id="builder-title">Untitled Scorecard</h1>
+                <button class="edit-button" type="button" aria-label="Edit scorecard name">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" /></svg>
+                </button>
+              </div>
+              <div class="builder-actions">
+                <button class="save-button" type="button">Save Draft</button>
+                <button class="publish-button" type="button">Publish</button>
+              </div>
+            </div>
+
+            <div class="builder-body">
+              <aside class="step-panel" aria-label="Build steps">
+                <p class="step-label">Steps</p>
+                <ol class="steps">
+                  <li class="active" data-step="create"><button type="button"><span>1</span>Create</button></li>
+                  <li data-step="configure"><button type="button"><span>2</span>Configure</button></li>
+                  <li data-step="build"><button type="button"><span>3</span>Build</button></li>
+                  <li data-step="preview"><button type="button"><span>4</span>Preview &amp; Test</button></li>
+                </ol>
+              </aside>
+              <button class="resize-handle left-resize" type="button" data-resize-panel="left" aria-label="Resize steps panel"></button>
+
+              <section class="create-panel builder-panel active" aria-labelledby="create-title" data-builder-panel="create">
+                <h2 id="create-title">Create</h2>
+                <div class="create-options">
+                  <article class="create-card expanded" data-create-card>
+                    <div class="create-icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7v10" /><path d="M11 7v10" /><path d="M15 10v7" /></svg>
+                    </div>
+                    <div>
+                      <h3>Start from a template</h3>
+                      <p>Preview pre-built questions and pick which ones to include.</p>
+                    </div>
+                    <button class="card-toggle" type="button" aria-label="Collapse template options" aria-expanded="true">
+                      <svg class="card-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="template-details">
+                      <section class="question-group" aria-labelledby="opening-discovery">
+                        <h4 id="opening-discovery">Opening &amp; Discovery</h4>
+                        <ul>
+                          <li>
+                            <span class="checkmark" aria-hidden="true">✓</span>
+                            <div>
+                              <p>Did the agent introduce themselves by name and company within the first 15 seconds?</p>
+                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <span class="checkmark" aria-hidden="true">✓</span>
+                            <div>
+                              <p>Did the agent ask at least one open-ended question to understand the customer's need?</p>
+                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
+                            </div>
+                          </li>
+                        </ul>
+                      </section>
+
+                      <section class="question-group" aria-labelledby="product-value">
+                        <h4 id="product-value">Product &amp; Value</h4>
+                        <ul>
+                          <li>
+                            <span class="checkmark" aria-hidden="true">✓</span>
+                            <div>
+                              <p>Did the agent tailor the pitch to the customer's stated use case?</p>
+                              <div class="question-tags"><span>Likert</span><span>10 pts</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <span class="checkmark" aria-hidden="true">✓</span>
+                            <div>
+                              <p>Did the agent present at least two concrete outcomes (ROI, time saved, revenue lift)?</p>
+                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
+                            </div>
+                          </li>
+                        </ul>
+                      </section>
+
+                      <section class="question-group" aria-labelledby="compliance">
+                        <h4 id="compliance">Compliance</h4>
+                        <ul>
+                          <li>
+                            <span class="checkmark" aria-hidden="true">✓</span>
+                            <div>
+                              <p>Did the agent obtain verbal consent before sharing pricing?</p>
+                              <div class="question-tags"><span>Binary</span><span>10 pts</span><span class="critical">Critical</span></div>
+                            </div>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+                  </article>
+
+                  <article class="create-card" data-create-card>
+                    <div class="create-icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14" /><path d="m13 7 5 5-5 5" /></svg>
+                    </div>
+                    <div>
+                      <h3>Import CSV or Excel</h3>
+                      <p>Upload an existing rubric -- AI extracts questions.</p>
+                    </div>
+                    <button class="card-toggle" type="button" aria-label="Expand import options" aria-expanded="false">
+                      <svg class="card-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="template-details compact-detail">
+                      <p>Drag a CSV or Excel rubric here, or choose a local file to extract sections and questions.</p>
+                      <button class="secondary-action" type="button">Choose File</button>
+                    </div>
+                  </article>
+
+                  <article class="create-card" data-create-card>
+                    <div class="create-icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+                    </div>
+                    <div>
+                      <h3>Start from scratch</h3>
+                      <p>Build your scorecard section by section on a blank canvas.</p>
+                    </div>
+                    <button class="card-toggle" type="button" aria-label="Expand scratch options" aria-expanded="false">
+                      <svg class="card-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="template-details compact-detail">
+                      <p>Create an empty scorecard and add sections, questions, weights, and scoring logic manually.</p>
+                      <button class="secondary-action" type="button">Create Blank Scorecard</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section class="configure-panel builder-panel" aria-labelledby="configure-title" data-builder-panel="configure" hidden>
+                <h2 id="configure-title">Configure</h2>
+                <form class="configure-form">
+                  <label class="field full-field">
+                    <span>Scorecard Name</span>
+                    <input type="text" value="Sales Team - QA" />
+                  </label>
+
+                  <label class="field full-field">
+                    <span>Description <em>(optional)</em></span>
+                    <textarea maxlength="400" placeholder="What is this scorecard for? Who are the agents being graded?"></textarea>
+                    <small>0/400</small>
+                  </label>
+
+                  <fieldset class="field-set">
+                    <legend>Call direction</legend>
+                    <div class="segmented-control" role="group" aria-label="Call direction">
+                      <button class="selected" type="button">Both</button>
+                      <button type="button">Inbound</button>
+                      <button type="button">Outbound</button>
+                    </div>
+                  </fieldset>
+
+                  <div class="duration-row">
+                    <label class="field duration-field">
+                      <span>Minimum duration</span>
+                      <span class="unit-input"><input type="number" value="30" min="0" /><em>Seconds</em></span>
+                    </label>
+                    <label class="field duration-field">
+                      <span>Maximum duration</span>
+                      <span class="unit-input"><input type="number" value="30" min="0" /><em>Minutes</em></span>
+                    </label>
+                  </div>
+
+                  <section class="team-section" aria-labelledby="team-title">
+                    <div class="team-heading">
+                      <div>
+                        <h3 id="team-title">Team</h3>
+                        <p>Select the teams that should be assessed with this scorecard.</p>
+                      </div>
+                      <button type="button" class="link-button" data-select-all-teams>Select all</button>
+                    </div>
+
+                    <div class="team-search">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16 16 4 4" /></svg>
+                      <input type="search" placeholder="Search teams" aria-label="Search teams" />
+                    </div>
+
+                    <div class="team-list">
+                      <label class="team-row">
+                        <input type="checkbox" checked />
+                        <span>
+                          <strong>Sales Development</strong>
+                          <small>18 agents</small>
+                        </span>
+                      </label>
+                      <label class="team-row">
+                        <input type="checkbox" checked />
+                        <span>
+                          <strong>Account Executives</strong>
+                          <small>24 agents</small>
+                        </span>
+                      </label>
+                      <label class="team-row">
+                        <input type="checkbox" />
+                        <span>
+                          <strong>Customer Support</strong>
+                          <small>31 agents</small>
+                        </span>
+                      </label>
+                      <label class="team-row">
+                        <input type="checkbox" />
+                        <span>
+                          <strong>Retention</strong>
+                          <small>12 agents</small>
+                        </span>
+                      </label>
+                    </div>
+                  </section>
+                </form>
+              </section>
+
+              <section class="build-panel builder-panel" aria-labelledby="build-title" data-builder-panel="build" hidden>
+                <div class="build-heading">
+                  <h2 id="build-title">Build</h2>
+                  <button class="secondary-action add-question" type="button" data-add-question>+ Add question</button>
+                </div>
+
+                <div class="question-editor-list" data-question-list>
+                  <article class="editor-card expanded" data-question-card>
+                    <header class="editor-card-header">
+                      <button class="question-toggle" type="button" aria-expanded="true">
+                        <span class="question-number">1</span>
+                        <span class="question-title" data-question-title>Did the agent introduce themselves by name and company within the first 15 seconds?</span>
+                      </button>
+                      <button class="delete-question" type="button" aria-label="Delete question">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                      </button>
+                    </header>
+
+                    <div class="editor-card-body">
+                      <fieldset class="choice-group">
+                        <legend>Answer type</legend>
+                        <label><input type="radio" name="answer-type-1" value="Binary" checked />Binary</label>
+                        <label><input type="radio" name="answer-type-1" value="Likert" />Likert</label>
+                      </fieldset>
+
+                      <fieldset class="choice-group">
+                        <legend>Matching method</legend>
+                        <label><input type="radio" name="matching-method-1" value="AI Test" checked />AI Test</label>
+                        <label><input type="radio" name="matching-method-1" value="Keyword Match" />Keyword Match</label>
+                        <label><input type="radio" name="matching-method-1" value="Hybrid" />Hybrid</label>
+                      </fieldset>
+
+                      <label class="field answer-definition">
+                        <span>Answer definitions</span>
+                        <textarea data-definition-input placeholder='e.g. "Agent stated their first name and company name within the first 15 seconds."'></textarea>
+                      </label>
+                      <div class="definition-helper">
+                        <p>Yes - what observable behavior qualifies as Yes?</p>
+                        <p>No - implicit if the Yes criteria are not met, the answer is No.</p>
+                        <button class="refine-button" type="button" data-refine-answer>+ Refine with AI</button>
+                      </div>
+
+                      <div class="score-assignment">
+                        <p>Score assignment</p>
+                        <label>Yes <input type="number" value="10" min="0" data-score-yes /> pts</label>
+                        <label>No <input type="number" value="0" min="0" data-score-no /> pts</label>
+                      </div>
+                    </div>
+
+                    <footer class="editor-card-summary">
+                      <span data-summary-type>Binary</span>
+                      <span data-summary-method>AI Test</span>
+                      <span><strong data-summary-points>10</strong> pts</span>
+                    </footer>
+                  </article>
+
+                  <article class="editor-card" data-question-card>
+                    <header class="editor-card-header">
+                      <button class="question-toggle" type="button" aria-expanded="false">
+                        <span class="question-number">2</span>
+                        <span class="question-title" data-question-title>Did the agent ask if customer could hear them clearly within the first 30 seconds?</span>
+                      </button>
+                      <button class="delete-question" type="button" aria-label="Delete question">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                      </button>
+                    </header>
+                    <footer class="editor-card-summary">
+                      <span data-summary-type>Binary</span>
+                      <span data-summary-method>LLM Eval</span>
+                      <span><strong data-summary-points>5</strong> pts</span>
+                    </footer>
+                  </article>
+
+                  <article class="editor-card" data-question-card>
+                    <header class="editor-card-header">
+                      <button class="question-toggle" type="button" aria-expanded="false">
+                        <span class="question-number">3</span>
+                        <span class="question-title" data-question-title>Did the agent confirm the purpose of the call during the first minute?</span>
+                      </button>
+                      <button class="delete-question" type="button" aria-label="Delete question">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                      </button>
+                    </header>
+                    <footer class="editor-card-summary">
+                      <span data-summary-type>Binary</span>
+                      <span data-summary-method>LLM Eval</span>
+                      <span><strong data-summary-points>5</strong> pts</span>
+                    </footer>
+                  </article>
+
+                  <article class="editor-card" data-question-card>
+                    <header class="editor-card-header">
+                      <button class="question-toggle" type="button" aria-expanded="false">
+                        <span class="question-number">4</span>
+                        <span class="question-title" data-question-title>Did the agent show empathy toward the customer's issue within the first 2 minutes?</span>
+                      </button>
+                      <button class="delete-question" type="button" aria-label="Delete question">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                      </button>
+                    </header>
+                    <footer class="editor-card-summary">
+                      <span data-summary-type>Binary</span>
+                      <span data-summary-method>AI Test</span>
+                      <span><strong data-summary-points>5</strong> pts</span>
+                    </footer>
+                  </article>
+                </div>
+              </section>
+
+              <section class="preview-panel builder-panel wide-panel" aria-labelledby="preview-title" data-builder-panel="preview" hidden>
+                <div class="preview-heading">
+                  <div>
+                    <h2 id="preview-title">Preview &amp; test</h2>
+                    <p>Run the scorecard against a real call to see how it grades before you commit.</p>
+                  </div>
+                  <button class="secondary-action export-button" type="button" data-export-json>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
+                    Export JSON
+                  </button>
+                </div>
+
+                <section class="scorecard-preview" aria-label="Scorecard preview">
+                    <article class="preview-summary-card">
+                      <div>
+                        <h3>Sales Team -- Q2 2026</h3>
+                        <p>Outbound sales for the APAC team</p>
+                        <div class="summary-meta">
+                          <span>Direction <strong>Outbound</strong></span>
+                          <span>Min <strong>30s</strong></span>
+                          <span>Max score <strong>70</strong></span>
+                        </div>
+                      </div>
+                      <span class="version-pill">v1</span>
+                    </article>
+
+                    <article class="rubric-section">
+                      <header>
+                        <h3>Opening &amp; Discovery</h3>
+                        <p>2 Q · max 10 pts</p>
+                      </header>
+                      <div class="rubric-row">
+                        <span>1</span>
+                        <div>
+                          <p>Did the agent introduce themselves by name and company within the first 15 seconds?</p>
+                          <div class="question-tags"><span>Binary</span><span>llm</span></div>
+                        </div>
+                        <strong>5</strong>
+                      </div>
+                      <div class="rubric-row">
+                        <span>2</span>
+                        <div>
+                          <p>Did the agent ask at least one open-ended question to understand the customer's need?</p>
+                          <div class="question-tags"><span>Binary</span><span>llm</span></div>
+                        </div>
+                        <strong>5</strong>
+                      </div>
+                    </article>
+
+                    <article class="rubric-section">
+                      <header>
+                        <h3>Product &amp; Value</h3>
+                        <p>2 Q · max 15 pts</p>
+                      </header>
+                      <div class="rubric-row">
+                        <span>1</span>
+                        <div>
+                          <p>Did the agent tailor the pitch to the customer's stated use case?</p>
+                          <div class="question-tags"><span>Likert</span></div>
+                        </div>
+                        <strong>10</strong>
+                      </div>
+                      <div class="rubric-row">
+                        <span>2</span>
+                        <div>
+                          <p>Did the agent present at least two concrete outcomes (ROI, time saved, revenue lift)?</p>
+                          <div class="question-tags"><span>Binary</span><span>llm</span></div>
+                        </div>
+                        <strong>5</strong>
+                      </div>
+                    </article>
+
+                    <article class="rubric-section">
+                      <header>
+                        <h3>Compliance</h3>
+                        <p>2 Q · max 20 pts · <span>2 critical</span></p>
+                      </header>
+                      <div class="rubric-row">
+                        <span>1</span>
+                        <div>
+                          <p>Did the agent obtain verbal consent before sharing pricing?</p>
+                          <div class="question-tags"><span>Binary</span><span>hybrid</span><span class="critical">critical</span></div>
+                        </div>
+                        <strong>10</strong>
+                      </div>
+                      <div class="rubric-row">
+                        <span>2</span>
+                        <div>
+                          <p>Did the agent state the recording disclosure at the start?</p>
+                          <div class="question-tags"><span>Binary</span><span>keyword</span><span class="critical">critical</span></div>
+                        </div>
+                        <strong>10</strong>
+                      </div>
+                    </article>
+                </section>
+              </section>
+
+              <button class="resize-handle right-resize" type="button" data-resize-panel="right" aria-label="Resize right panel"></button>
+              <aside class="builder-right">
+                <div class="help-widget" data-builder-help hidden>
+                  <div class="help-title">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="m10.3 4.2-8.1 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-2.8l-8.1-14a2 2 0 0 0-3.4 0Z" /></svg>
+                    Help Widget
+                  </div>
+                  <p>Filters lock to the saved version so grading stays consistent. To change scope later, duplicate this scorecard into a new version.</p>
+                </div>
+                <aside class="test-panel" aria-label="Test score" data-test-panel hidden>
+                  <div class="test-tabs">
+                    <button class="active" type="button" data-test-tab="recent">Recent calls</button>
+                    <button type="button" data-test-tab="paste">Paste</button>
+                  </div>
+
+                  <div class="call-picker" data-recent-call-controls>
+                    <select aria-label="Select recent call" data-call-select>
+                      <option value="priya">Priya Sharma - 12312opus</option>
+                      <option value="marco">Marco Sales - 99821apus</option>
+                      <option value="nina">Nina Patel - 44129opus</option>
+                    </select>
+                    <button class="run-button" type="button" data-run-test>Run</button>
+                  </div>
+
+                  <label class="paste-call" data-paste-call-controls hidden>
+                    <span>Transcript</span>
+                    <textarea placeholder="Paste a call transcript here..."></textarea>
+                    <button class="run-button" type="button" data-run-paste>Run pasted call</button>
+                  </label>
+
+                  <div class="score-result">
+                    <div>
+                      <span>Test score</span>
+                      <strong><span data-test-score>45</span><small>/70</small></strong>
+                    </div>
+                    <div>
+                      <span>Percent</span>
+                      <strong><span data-test-percent>64</span><small>%</small></strong>
+                    </div>
+                  </div>
+
+                  <div class="result-list" data-result-list>
+                    <article class="result-item pass">
+                      <span>✓</span>
+                      <div>
+                        <header><strong>Did the agent introduce themselves by name and company within the first 15 seconds?</strong><b>5/5</b></header>
+                        <p>Agent opened with "Hi, this is Priya from CloudPeak calling about your request."</p>
+                        <blockquote>"Hi, this is Priya from CloudPeak calling about your request."</blockquote>
+                      </div>
+                    </article>
+                    <article class="result-item pass">
+                      <span>✓</span>
+                      <div>
+                        <header><strong>Did the agent ask at least one open-ended question to understand the customer's need?</strong><b>5/5</b></header>
+                        <p>Agent asked an open discovery question at 00:42.</p>
+                        <blockquote>"Tell me a bit about how your team currently handles billing queries?"</blockquote>
+                      </div>
+                    </article>
+                    <article class="result-item fail">
+                      <span>!</span>
+                      <div>
+                        <header><strong>Did the agent tailor the pitch to the customer's stated use case?</strong><b>0/10</b></header>
+                        <p>The pitch stayed generic and did not connect back to the billing workflow.</p>
+                        <blockquote>"Our platform helps teams respond faster across channels."</blockquote>
+                      </div>
+                    </article>
+                  </div>
+                </aside>
+              </aside>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const content = document.querySelector(".content");
+      const openBuilder = document.querySelector("[data-open-builder]");
+      const closeBuilder = document.querySelector("[data-close-builder]");
+      const qaTabs = document.querySelectorAll("[data-qa-tab]");
+      const qaPanels = document.querySelectorAll("[data-qa-panel]");
+      const overviewRange = document.querySelector("[data-overview-range]");
+      const overviewScore = document.querySelector("[data-overview-score]");
+      const callCount = document.querySelector("[data-call-count]");
+      const agentFilters = document.querySelectorAll("[data-agent-filter]");
+      const agentSearch = document.querySelector("[data-agent-search]");
+      const agentRows = document.querySelectorAll("[data-agent-table] tr");
+      const createCards = document.querySelectorAll("[data-create-card]");
+      const stepItems = document.querySelectorAll("[data-step]");
+      const panels = document.querySelectorAll("[data-builder-panel]");
+      const selectAllTeams = document.querySelector("[data-select-all-teams]");
+      const builderHelp = document.querySelector("[data-builder-help]");
+      const testPanel = document.querySelector("[data-test-panel]");
+      const directionButtons = document.querySelectorAll(".segmented-control button");
+      const teamSearch = document.querySelector(".team-search input");
+      const questionList = document.querySelector("[data-question-list]");
+      const addQuestionButton = document.querySelector("[data-add-question]");
+      const testTabs = document.querySelectorAll("[data-test-tab]");
+      const recentCallControls = document.querySelector("[data-recent-call-controls]");
+      const pasteCallControls = document.querySelector("[data-paste-call-controls]");
+      const callSelect = document.querySelector("[data-call-select]");
+      const runButtons = document.querySelectorAll("[data-run-test], [data-run-paste]");
+      const exportJsonButton = document.querySelector("[data-export-json]");
+      const testScore = document.querySelector("[data-test-score]");
+      const testPercent = document.querySelector("[data-test-percent]");
+      const resultList = document.querySelector("[data-result-list]");
+      const builderBody = document.querySelector(".builder-body");
+      const resizeHandles = document.querySelectorAll("[data-resize-panel]");
+
+      const STEP_ORDER = ["create", "configure", "build", "preview"];
+      const STEP_LABELS = { create: "Create", configure: "Configure", build: "Build", preview: "Preview & Test" };
+
+      // Inject back/next navigation at the bottom of each builder panel
+      panels.forEach((panel) => {
+        const nav = document.createElement("nav");
+        nav.className = "builder-nav";
+        nav.setAttribute("aria-label", "Builder step navigation");
+        nav.innerHTML = `
+          <button type="button" class="nav-button nav-back" data-builder-nav="back">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            <span data-nav-back-label>Back</span>
+          </button>
+          <button type="button" class="nav-button nav-next" data-builder-nav="next">
+            <span data-nav-next-label>Next</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        `;
+        panel.appendChild(nav);
+      });
+
+      document.querySelectorAll("[data-builder-nav]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const currentStep = document.querySelector(".builder-panel.active")?.dataset.builderPanel;
+          const currentIndex = STEP_ORDER.indexOf(currentStep);
+          if (currentIndex === -1) return;
+          const delta = button.dataset.builderNav === "next" ? 1 : -1;
+          const nextIndex = currentIndex + delta;
+          if (nextIndex < 0 || nextIndex >= STEP_ORDER.length) return;
+          setBuilderStep(STEP_ORDER[nextIndex]);
+        });
+      });
+
+      function setBuilderView(isOpen) {
+        document.querySelectorAll(".list-view, .tabs, .scorecard-panel").forEach((node) => {
+          node.hidden = isOpen;
+        });
+        document.querySelector(".builder-view").hidden = !isOpen;
+        content.classList.toggle("is-building", isOpen);
+        if (isOpen) setBuilderStep("create");
+      }
+
+      function setBuilderStep(target) {
+        stepItems.forEach((item) => item.classList.toggle("active", item.dataset.step === target));
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.builderPanel !== target;
+          panel.classList.toggle("active", panel.dataset.builderPanel === target);
+        });
+        builderHelp.hidden = !["configure", "build"].includes(target);
+        testPanel.hidden = target !== "preview";
+
+        const currentIndex = STEP_ORDER.indexOf(target);
+        const isFirst = currentIndex <= 0;
+        const isLast = currentIndex >= STEP_ORDER.length - 1;
+        document.querySelectorAll(".builder-nav").forEach((nav) => {
+          const backBtn = nav.querySelector('[data-builder-nav="back"]');
+          const nextBtn = nav.querySelector('[data-builder-nav="next"]');
+          backBtn.disabled = isFirst;
+          nextBtn.disabled = isLast;
+          nav.querySelector("[data-nav-back-label]").textContent = isFirst ? "Back" : STEP_LABELS[STEP_ORDER[currentIndex - 1]];
+          nav.querySelector("[data-nav-next-label]").textContent = isLast ? "Finish" : STEP_LABELS[STEP_ORDER[currentIndex + 1]];
+        });
+      }
+
+      openBuilder.addEventListener("click", () => setBuilderView(true));
+      closeBuilder.addEventListener("click", () => setBuilderView(false));
+      qaTabs.forEach((tab) => {
+        tab.addEventListener("click", (event) => {
+          event.preventDefault();
+          const target = tab.dataset.qaTab;
+          if (!document.querySelector(`[data-qa-panel="${target}"]`)) return;
+          qaTabs.forEach((item) => item.classList.toggle("current", item === tab));
+          qaPanels.forEach((panel) => {
+            panel.hidden = panel.dataset.qaPanel !== target;
+          });
+        });
+      });
+
+      const overviewByRange = {
+        30: ["84.2%", "146 calls graded"],
+        90: ["82.6%", "412 calls graded"],
+        180: ["81.0%", "895 calls graded"],
+        365: ["79.8%", "1,207 calls graded"]
+      };
+
+      overviewRange.addEventListener("change", () => {
+        const [score, calls] = overviewByRange[overviewRange.value];
+        overviewScore.innerHTML = `${score.replace("%", "")}<small>%</small>`;
+        callCount.textContent = calls;
+      });
+
+      function filterAgents() {
+        const selected = Object.fromEntries([...agentFilters].map((filter) => [filter.dataset.agentFilter, filter.value]));
+        const query = agentSearch.value.trim().toLowerCase();
+        agentRows.forEach((row) => {
+          const matchesFilters = Object.entries(selected).every(([key, value]) => value === "all" || row.dataset[key] === value);
+          const matchesSearch = !query || row.textContent.toLowerCase().includes(query);
+          row.hidden = !(matchesFilters && matchesSearch);
+        });
+      }
+
+      agentFilters.forEach((filter) => filter.addEventListener("change", filterAgents));
+      agentSearch.addEventListener("input", filterAgents);
+      stepItems.forEach((step) => {
+        step.querySelector("button").addEventListener("click", () => {
+          const target = step.dataset.step;
+          if (!document.querySelector(`[data-builder-panel="${target}"]`)) return;
+          setBuilderStep(target);
+        });
+      });
+      createCards.forEach((card) => {
+        const toggle = card.querySelector(".card-toggle");
+        toggle.addEventListener("click", () => {
+          const shouldExpand = !card.classList.contains("expanded");
+          createCards.forEach((item) => {
+            item.classList.remove("expanded");
+            item.querySelector(".card-toggle").setAttribute("aria-expanded", "false");
+          });
+          if (shouldExpand) {
+            card.classList.add("expanded");
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+      selectAllTeams.addEventListener("click", () => {
+        document.querySelectorAll(".team-row input").forEach((checkbox) => {
+          checkbox.checked = true;
+        });
+      });
+      directionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          directionButtons.forEach((item) => item.classList.toggle("selected", item === button));
+        });
+      });
+      teamSearch.addEventListener("input", () => {
+        const query = teamSearch.value.trim().toLowerCase();
+        document.querySelectorAll(".team-row").forEach((row) => {
+          row.hidden = !row.textContent.toLowerCase().includes(query);
+        });
+      });
+
+      function questionBodyTemplate(index) {
+        return `
+          <div class="editor-card-body">
+            <fieldset class="choice-group">
+              <legend>Answer type</legend>
+              <label><input type="radio" name="answer-type-${index}" value="Binary" checked />Binary</label>
+              <label><input type="radio" name="answer-type-${index}" value="Likert" />Likert</label>
+            </fieldset>
+            <fieldset class="choice-group">
+              <legend>Matching method</legend>
+              <label><input type="radio" name="matching-method-${index}" value="AI Test" checked />AI Test</label>
+              <label><input type="radio" name="matching-method-${index}" value="Keyword Match" />Keyword Match</label>
+              <label><input type="radio" name="matching-method-${index}" value="Hybrid" />Hybrid</label>
+            </fieldset>
+            <label class="field answer-definition">
+              <span>Answer definitions</span>
+              <textarea data-definition-input placeholder='e.g. "Agent stated their first name and company name within the first 15 seconds."'></textarea>
+            </label>
+            <div class="definition-helper">
+              <p>Yes - what observable behavior qualifies as Yes?</p>
+              <p>No - implicit if the Yes criteria are not met, the answer is No.</p>
+              <button class="refine-button" type="button" data-refine-answer>+ Refine with AI</button>
+            </div>
+            <div class="score-assignment">
+              <p>Score assignment</p>
+              <label>Yes <input type="number" value="5" min="0" data-score-yes /> pts</label>
+              <label>No <input type="number" value="0" min="0" data-score-no /> pts</label>
+            </div>
+          </div>
+        `;
+      }
+
+      function ensureQuestionBody(card) {
+        if (card.querySelector(".editor-card-body")) return;
+        const index = [...questionList.querySelectorAll("[data-question-card]")].indexOf(card) + 1;
+        card.querySelector(".editor-card-header").insertAdjacentHTML("afterend", questionBodyTemplate(index));
+        bindQuestionInputs(card);
+      }
+
+      function updateQuestionSummary(card) {
+        const type = card.querySelector('input[name^="answer-type"]:checked')?.value || card.querySelector("[data-summary-type]")?.textContent || "Binary";
+        const method = card.querySelector('input[name^="matching-method"]:checked')?.value || card.querySelector("[data-summary-method]")?.textContent || "AI Test";
+        const points = card.querySelector("[data-score-yes]")?.value || card.querySelector("[data-summary-points]")?.textContent || "5";
+        card.querySelector("[data-summary-type]").textContent = type;
+        card.querySelector("[data-summary-method]").textContent = method;
+        card.querySelector("[data-summary-points]").textContent = points || "0";
+      }
+
+      function renumberQuestions() {
+        questionList.querySelectorAll("[data-question-card]").forEach((card, index) => {
+          card.querySelector(".question-number").textContent = index + 1;
+          card.querySelectorAll('input[type="radio"]').forEach((input) => {
+            if (input.name.startsWith("answer-type")) input.name = `answer-type-${index + 1}`;
+            if (input.name.startsWith("matching-method")) input.name = `matching-method-${index + 1}`;
+          });
+        });
+      }
+
+      function expandQuestion(card) {
+        ensureQuestionBody(card);
+        questionList.querySelectorAll("[data-question-card]").forEach((item) => {
+          const isTarget = item === card;
+          item.classList.toggle("expanded", isTarget);
+          item.querySelector(".question-toggle").setAttribute("aria-expanded", String(isTarget));
+          if (!isTarget) updateQuestionSummary(item);
+        });
+      }
+
+      function bindQuestionInputs(card) {
+        card.querySelectorAll('input[type="radio"], [data-score-yes], [data-score-no]').forEach((input) => {
+          input.addEventListener("input", () => updateQuestionSummary(card));
+          input.addEventListener("change", () => updateQuestionSummary(card));
+        });
+        card.querySelector("[data-refine-answer]")?.addEventListener("click", () => {
+          const definition = card.querySelector("[data-definition-input]");
+          const title = card.querySelector("[data-question-title]").textContent.trim();
+          definition.value = `Pass when the transcript clearly shows: ${title.replace(/\?$/, "").toLowerCase()}.`;
+        });
+      }
+
+      function bindQuestionCard(card) {
+        card.querySelector(".question-toggle").addEventListener("click", () => expandQuestion(card));
+        card.querySelector(".delete-question").addEventListener("click", () => {
+          const cards = questionList.querySelectorAll("[data-question-card]");
+          if (cards.length === 1) return;
+          const wasExpanded = card.classList.contains("expanded");
+          card.remove();
+          renumberQuestions();
+          if (wasExpanded) expandQuestion(questionList.querySelector("[data-question-card]"));
+        });
+        bindQuestionInputs(card);
+      }
+
+      questionList.querySelectorAll("[data-question-card]").forEach(bindQuestionCard);
+      addQuestionButton.addEventListener("click", () => {
+        const next = questionList.querySelectorAll("[data-question-card]").length + 1;
+        const article = document.createElement("article");
+        article.className = "editor-card";
+        article.dataset.questionCard = "";
+        article.innerHTML = `
+          <header class="editor-card-header">
+            <button class="question-toggle" type="button" aria-expanded="false">
+              <span class="question-number">${next}</span>
+              <span class="question-title" data-question-title>New quality check question?</span>
+            </button>
+            <button class="delete-question" type="button" aria-label="Delete question">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+            </button>
+          </header>
+          <footer class="editor-card-summary">
+            <span data-summary-type>Binary</span>
+            <span data-summary-method>AI Test</span>
+            <span><strong data-summary-points>5</strong> pts</span>
+          </footer>
+        `;
+        questionList.append(article);
+        bindQuestionCard(article);
+        expandQuestion(article);
+      });
+
+      const testRuns = {
+        priya: {
+          score: 45,
+          total: 70,
+          results: [
+            ["pass", "Did the agent introduce themselves by name and company within the first 15 seconds?", "5/5", "Agent opened with a clear intro from CloudPeak.", '"Hi, this is Priya from CloudPeak calling about your request."'],
+            ["pass", "Did the agent ask at least one open-ended question to understand the customer's need?", "5/5", "Agent asked an open discovery question at 00:42.", '"Tell me a bit about how your team currently handles billing queries?"'],
+            ["fail", "Did the agent tailor the pitch to the customer's stated use case?", "0/10", "The pitch stayed generic and did not connect back to the billing workflow.", '"Our platform helps teams respond faster across channels."']
+          ]
+        },
+        marco: {
+          score: 58,
+          total: 70,
+          results: [
+            ["pass", "Did the agent introduce themselves by name and company within the first 15 seconds?", "5/5", "Agent introduced himself and company immediately.", '"This is Marco from Wati, following up on your demo request."'],
+            ["pass", "Did the agent tailor the pitch to the customer's stated use case?", "8/10", "The pitch connected automation to the prospect's support queue.", '"For your support team, the biggest lift is routing repeated questions automatically."'],
+            ["pass", "Did the agent obtain verbal consent before sharing pricing?", "10/10", "Consent was captured before pricing details.", '"Would it be okay if I share the pricing bands now?"']
+          ]
+        },
+        nina: {
+          score: 32,
+          total: 70,
+          results: [
+            ["pass", "Did the agent confirm the purpose of the call during the first minute?", "5/5", "Purpose was confirmed at 00:18.", '"I am calling to understand if WhatsApp automation is still a priority."'],
+            ["fail", "Did the agent ask at least one open-ended question to understand the customer's need?", "0/5", "The call used mostly closed questions.", '"Do you need more agents? Is pricing okay?"'],
+            ["fail", "Did the agent state the recording disclosure at the start?", "0/10", "No disclosure was found in the first two minutes.", '"Let me quickly show you what the tool can do."']
+          ]
+        },
+        paste: {
+          score: 51,
+          total: 70,
+          results: [
+            ["pass", "Did the agent introduce themselves by name and company within the first 15 seconds?", "5/5", "The pasted transcript includes an opening introduction.", '"Hi, this is the Wati team calling about your inquiry."'],
+            ["pass", "Did the agent present at least two concrete outcomes (ROI, time saved, revenue lift)?", "5/5", "Two outcomes were mentioned: faster first response and lower manual routing.", '"Teams usually see faster replies and fewer manual assignments."'],
+            ["fail", "Did the agent obtain verbal consent before sharing pricing?", "0/10", "Pricing was shared without explicit consent.", '"The starter plan begins at this price point."']
+          ]
+        }
+      };
+
+      function renderTestResults(run) {
+        testScore.textContent = run.score;
+        testPercent.textContent = Math.round((run.score / run.total) * 100);
+        resultList.innerHTML = run.results.map(([state, title, score, note, quote]) => `
+          <article class="result-item ${state}">
+            <span>${state === "pass" ? "✓" : "!"}</span>
+            <div>
+              <header><strong>${title}</strong><b>${score}</b></header>
+              <p>${note}</p>
+              <blockquote>${quote}</blockquote>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      testTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          testTabs.forEach((item) => item.classList.toggle("active", item === tab));
+          const isPaste = tab.dataset.testTab === "paste";
+          recentCallControls.hidden = isPaste;
+          pasteCallControls.hidden = !isPaste;
+        });
+      });
+
+      runButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const activeTab = document.querySelector("[data-test-tab].active").dataset.testTab;
+          renderTestResults(testRuns[activeTab === "paste" ? "paste" : callSelect.value]);
+        });
+      });
+
+      exportJsonButton.addEventListener("click", () => {
+        const payload = {
+          scorecard: "Sales Team -- Q2 2026",
+          version: "v1",
+          questions: [...document.querySelectorAll(".rubric-row p")].map((item) => item.textContent),
+          latestTest: {
+            score: Number(testScore.textContent),
+            percent: Number(testPercent.textContent)
+          }
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "scorecard-preview.json";
+        link.click();
+        URL.revokeObjectURL(url);
+      });
+
+      function cssPx(name) {
+        return Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+      }
+
+      resizeHandles.forEach((handle) => {
+        handle.addEventListener("pointerdown", (event) => {
+          if (window.matchMedia("(max-width: 900px)").matches) return;
+          const side = handle.dataset.resizePanel;
+          const startX = event.clientX;
+          const styles = getComputedStyle(document.documentElement);
+          const current = side === "left"
+            ? Number.parseFloat(styles.getPropertyValue("--builder-left-width"))
+            : Number.parseFloat(styles.getPropertyValue("--builder-right-width"));
+          const min = cssPx(side === "left" ? "--builder-left-min" : "--builder-right-min");
+          const max = cssPx(side === "left" ? "--builder-left-max" : "--builder-right-max");
+
+          handle.setPointerCapture(event.pointerId);
+          handle.classList.add("is-dragging");
+          document.body.classList.add("is-resizing");
+
+          function onMove(moveEvent) {
+            const delta = moveEvent.clientX - startX;
+            const next = side === "left" ? current + delta : current - delta;
+            const clamped = Math.min(max, Math.max(min, next));
+            document.documentElement.style.setProperty(
+              side === "left" ? "--builder-left-width" : "--builder-right-width",
+              `${clamped}px`
+            );
+          }
+
+          function onUp(upEvent) {
+            handle.releasePointerCapture(upEvent.pointerId);
+            handle.classList.remove("is-dragging");
+            document.body.classList.remove("is-resizing");
+            handle.removeEventListener("pointermove", onMove);
+            handle.removeEventListener("pointerup", onUp);
+            handle.removeEventListener("pointercancel", onUp);
+          }
+
+          handle.addEventListener("pointermove", onMove);
+          handle.addEventListener("pointerup", onUp);
+          handle.addEventListener("pointercancel", onUp);
+        });
+
+        handle.addEventListener("dblclick", () => {
+          const side = handle.dataset.resizePanel;
+          document.documentElement.style.setProperty(
+            side === "left" ? "--builder-left-width" : "--builder-right-width",
+            "260px"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
