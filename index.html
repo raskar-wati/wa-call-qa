@@ -305,34 +305,65 @@
             </div>
 
             <div class="scorecard-list">
-              <article class="scorecard-row">
+              <article class="scorecard-row" data-open-scorecard="apac" role="button" tabindex="0">
                 <div>
                   <h3>Sales Outbound -- APAC <span class="status active">Active</span></h3>
                   <p>842 calls graded</p>
                 </div>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </article>
-              <article class="scorecard-row">
+              <article class="scorecard-row" data-open-scorecard="emea" role="button" tabindex="0">
                 <div>
                   <h3>Sales Outbound -- EMEA <span class="status active">Active</span></h3>
                   <p>915 calls graded</p>
                 </div>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </article>
-              <article class="scorecard-row">
+              <article class="scorecard-row" data-open-scorecard="na" role="button" tabindex="0">
                 <div>
                   <h3>Sales Inbound -- North America <span class="status inactive">Inactive</span></h3>
                   <p>320 calls graded</p>
                 </div>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </article>
-              <article class="scorecard-row">
+              <article class="scorecard-row" data-open-scorecard="latam" role="button" tabindex="0">
                 <div>
                   <h3>Support Outbound -- Latin America <span class="status draft">Draft</span></h3>
                   <p>0 graded</p>
                 </div>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
               </article>
+            </div>
+          </section>
+
+          <!-- Scorecard Detail View -->
+          <section class="scorecard-detail" aria-labelledby="detail-title" hidden data-scorecard-detail>
+            <div class="detail-header">
+              <button class="back-button" type="button" data-close-scorecard aria-label="Back to scorecards">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
+              </button>
+              <div class="detail-title-block">
+                <h2 id="detail-title" data-detail-name></h2>
+                <span class="detail-status" data-detail-status></span>
+              </div>
+              <div class="detail-actions">
+                <button class="secondary-action" type="button">Edit</button>
+                <button class="secondary-action" type="button">Export CSV</button>
+              </div>
+            </div>
+
+            <div class="detail-stats" data-detail-stats></div>
+
+            <div class="detail-body">
+              <section class="detail-questions" aria-labelledby="questions-title">
+                <h3 id="questions-title">Scorecard Questions</h3>
+                <div class="questions-list" data-detail-questions></div>
+              </section>
+
+              <section class="detail-calls" aria-labelledby="calls-title">
+                <h3 id="calls-title">Recent Graded Calls</h3>
+                <div class="calls-list" data-detail-calls></div>
+              </section>
             </div>
           </section>
 
@@ -1268,6 +1299,157 @@
             "260px"
           );
         });
+      });
+
+      // ── Scorecard Detail Data ──
+      const scorecardData = {
+        apac: {
+          name: "Sales Outbound -- APAC",
+          status: "active",
+          stats: [
+            { label: "Calls Graded", value: "842", note: "Last 6 months" },
+            { label: "Avg Score", value: "83", suffix: "%", note: "+2.1 pts vs prev period" },
+            { label: "Pass Rate", value: "76", suffix: "%", note: "Score ≥ 70%" },
+            { label: "Critical Fails", value: "14", note: "Compliance questions", warn: true }
+          ],
+          questions: [
+            { text: "Did the agent introduce themselves by name and company within the first 15 seconds?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent ask at least one open-ended discovery question?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent tailor the pitch to the customer's stated use case?", tags: "Likert · AI Test", pts: "10 pts" },
+            { text: "Did the agent present at least two concrete outcomes (ROI, time saved)?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent obtain verbal consent before sharing pricing?", tags: "Binary · Hybrid · Critical", pts: "10 pts" },
+          ],
+          calls: [
+            { agent: "Priya Shah", date: "Apr 22, 2026", score: "82%", pill: "high" },
+            { agent: "Carlos Mendes", date: "Apr 21, 2026", score: "77%", pill: "mid" },
+            { agent: "Noor Ahmed", date: "Apr 20, 2026", score: "66%", pill: "low" },
+            { agent: "Ana Rossi", date: "Apr 19, 2026", score: "71%", pill: "mid" },
+            { agent: "Tom O'Brien", date: "Apr 18, 2026", score: "75%", pill: "mid" },
+          ]
+        },
+        emea: {
+          name: "Sales Outbound -- EMEA",
+          status: "active",
+          stats: [
+            { label: "Calls Graded", value: "915", note: "Last 6 months" },
+            { label: "Avg Score", value: "79", suffix: "%", note: "+1.4 pts vs prev period" },
+            { label: "Pass Rate", value: "71", suffix: "%", note: "Score ≥ 70%" },
+            { label: "Critical Fails", value: "22", note: "Compliance questions", warn: true }
+          ],
+          questions: [
+            { text: "Did the agent introduce themselves by name and company within the first 15 seconds?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent confirm the purpose of the call during the first minute?", tags: "Binary · LLM Eval", pts: "5 pts" },
+            { text: "Did the agent show empathy toward the customer's issue?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent state the recording disclosure at the start?", tags: "Binary · Keyword · Critical", pts: "10 pts" },
+            { text: "Did the agent summarise next steps before ending the call?", tags: "Binary · AI Test", pts: "5 pts" },
+          ],
+          calls: [
+            { agent: "Tom O'Brien", date: "Apr 22, 2026", score: "75%", pill: "mid" },
+            { agent: "Sara Kim", date: "Apr 21, 2026", score: "88%", pill: "high" },
+            { agent: "Luca Ferrari", date: "Apr 20, 2026", score: "63%", pill: "low" },
+            { agent: "Amara Diallo", date: "Apr 19, 2026", score: "80%", pill: "high" },
+            { agent: "Jakob Müller", date: "Apr 18, 2026", score: "72%", pill: "mid" },
+          ]
+        },
+        na: {
+          name: "Sales Inbound -- North America",
+          status: "inactive",
+          stats: [
+            { label: "Calls Graded", value: "320", note: "All time" },
+            { label: "Avg Score", value: "74", suffix: "%", note: "Last active period" },
+            { label: "Pass Rate", value: "68", suffix: "%", note: "Score ≥ 70%" },
+            { label: "Critical Fails", value: "9", note: "Compliance questions", warn: true }
+          ],
+          questions: [
+            { text: "Did the agent greet the customer and verify their identity within 30 seconds?", tags: "Binary · Keyword", pts: "5 pts" },
+            { text: "Did the agent ask at least one open-ended question to understand the customer's need?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent offer a relevant solution within the first 3 minutes?", tags: "Likert · AI Test", pts: "10 pts" },
+            { text: "Did the agent obtain verbal consent before sharing pricing?", tags: "Binary · Hybrid · Critical", pts: "10 pts" },
+          ],
+          calls: [
+            { agent: "James Carter", date: "Jan 15, 2026", score: "78%", pill: "mid" },
+            { agent: "Maria Lopez", date: "Jan 14, 2026", score: "65%", pill: "low" },
+            { agent: "Derek Wu", date: "Jan 13, 2026", score: "82%", pill: "high" },
+          ]
+        },
+        latam: {
+          name: "Support Outbound -- Latin America",
+          status: "draft",
+          stats: [
+            { label: "Calls Graded", value: "0", note: "Not yet active" },
+            { label: "Avg Score", value: "--", note: "No data yet" },
+            { label: "Pass Rate", value: "--", note: "No data yet" },
+            { label: "Questions", value: "4", note: "Draft questions added" }
+          ],
+          questions: [
+            { text: "Did the agent introduce themselves and state the reason for the call?", tags: "Binary · AI Test", pts: "5 pts" },
+            { text: "Did the agent confirm the customer's preferred language?", tags: "Binary · Keyword", pts: "5 pts" },
+            { text: "Did the agent resolve the issue or set clear follow-up expectations?", tags: "Likert · AI Test", pts: "10 pts" },
+            { text: "Did the agent close with a satisfaction check?", tags: "Binary · AI Test", pts: "5 pts" },
+          ],
+          calls: []
+        }
+      };
+
+      const scorecardDetail = document.querySelector("[data-scorecard-detail]");
+      const scorecardPanel = document.querySelector("[data-qa-panel='scorecards']");
+      const closeScorecard = document.querySelector("[data-close-scorecard]");
+      const detailName = document.querySelector("[data-detail-name]");
+      const detailStatus = document.querySelector("[data-detail-status]");
+      const detailStats = document.querySelector("[data-detail-stats]");
+      const detailQuestions = document.querySelector("[data-detail-questions]");
+      const detailCalls = document.querySelector("[data-detail-calls]");
+
+      function openScorecard(key) {
+        const data = scorecardData[key];
+        if (!data) return;
+
+        detailName.textContent = data.name;
+        detailStatus.className = `status ${data.status}`;
+        detailStatus.textContent = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+
+        detailStats.innerHTML = data.stats.map(s => `
+          <div class="detail-stat-card${s.warn ? " warn" : ""}">
+            <span>${s.label}</span>
+            <strong>${s.value}${s.suffix ? `<small>${s.suffix}</small>` : ""}</strong>
+            <p>${s.note}</p>
+          </div>
+        `).join("");
+
+        detailQuestions.innerHTML = data.questions.map(q => `
+          <div class="question-item">
+            <div>
+              <p>${q.text}</p>
+              <div class="question-tags">${q.tags.split(" · ").map(t => `<span${t === "Critical" ? ' class="critical"' : ""}>${t}</span>`).join("")}</div>
+            </div>
+            <strong>${q.pts}</strong>
+          </div>
+        `).join("");
+
+        detailCalls.innerHTML = data.calls.length
+          ? data.calls.map(c => `
+              <div class="call-item">
+                <div>
+                  <p>${c.agent}</p>
+                  <small>${c.date}</small>
+                </div>
+                <strong class="score-pill ${c.pill}">${c.score}</strong>
+              </div>
+            `).join("")
+          : `<p style="padding:16px;color:#68716c;font-size:12px;">No calls graded yet.</p>`;
+
+        scorecardPanel.hidden = true;
+        scorecardDetail.hidden = false;
+      }
+
+      document.querySelectorAll("[data-open-scorecard]").forEach(row => {
+        row.addEventListener("click", () => openScorecard(row.dataset.openScorecard));
+        row.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openScorecard(row.dataset.openScorecard); });
+      });
+
+      closeScorecard.addEventListener("click", () => {
+        scorecardDetail.hidden = true;
+        scorecardPanel.hidden = false;
       });
     </script>
   </body>
