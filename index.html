@@ -931,10 +931,32 @@
         });
       });
 
+      let activeTabBeforeBuilder = "scorecards";
+
       function setBuilderView(isOpen) {
-        document.querySelectorAll(".list-view, .tabs, .scorecard-panel").forEach((node) => {
-          node.hidden = isOpen;
-        });
+        if (isOpen) {
+          // Remember which tab was active before entering the builder
+          const currentTab = document.querySelector("[data-qa-tab].current");
+          if (currentTab) activeTabBeforeBuilder = currentTab.dataset.qaTab;
+
+          document.querySelectorAll(".list-view, .tabs, .scorecard-panel").forEach((node) => {
+            node.hidden = true;
+          });
+        } else {
+          // Restore only the tab that was active before
+          document.querySelector(".tabs").hidden = false;
+          document.querySelector(".page-header").hidden = false;
+
+          qaPanels.forEach((panel) => {
+            panel.hidden = panel.dataset.qaPanel !== activeTabBeforeBuilder;
+          });
+
+          // Sync the tab underline
+          qaTabs.forEach((tab) => {
+            tab.classList.toggle("current", tab.dataset.qaTab === activeTabBeforeBuilder);
+          });
+        }
+
         document.querySelector(".builder-view").hidden = !isOpen;
         content.classList.toggle("is-building", isOpen);
         if (isOpen) setBuilderStep("create");
