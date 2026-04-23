@@ -1438,6 +1438,11 @@
             `).join("")
           : `<p style="padding:16px;color:#68716c;font-size:12px;">No calls graded yet.</p>`;
 
+        // Hide everything else
+        document.querySelector(".page-header").hidden = true;
+        document.querySelector(".tabs").hidden = true;
+        document.querySelector(".overview-panel").hidden = true;
+        document.querySelector(".builder-view").hidden = true;
         scorecardPanel.hidden = true;
         scorecardDetail.hidden = false;
       }
@@ -1450,6 +1455,8 @@
       closeScorecard.addEventListener("click", () => {
         scorecardDetail.hidden = true;
         scorecardPanel.hidden = false;
+        document.querySelector(".page-header").hidden = false;
+        document.querySelector(".tabs").hidden = false;
       });
     </script>
   </body>
