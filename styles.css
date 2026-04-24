@@ -1514,6 +1514,33 @@ body.is-resizing {
   color: #c73737;
 }
 
+.template-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f1f0;
+}
+
+.template-selector label {
+  color: #68716c;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.template-selector select {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: #ffffff;
+  color: #27302b;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .compact-detail {
   padding: 8px 12px 12px 62px;
 }

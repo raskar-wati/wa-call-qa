@@ -393,58 +393,15 @@
                       <svg class="card-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
                     </button>
                     <div class="template-details">
-                      <section class="question-group" aria-labelledby="opening-discovery">
-                        <h4 id="opening-discovery">Opening &amp; Discovery</h4>
-                        <ul>
-                          <li>
-                            <span class="checkmark" aria-hidden="true">✓</span>
-                            <div>
-                              <p>Did the agent introduce themselves by name and company within the first 15 seconds?</p>
-                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
-                            </div>
-                          </li>
-                          <li>
-                            <span class="checkmark" aria-hidden="true">✓</span>
-                            <div>
-                              <p>Did the agent ask at least one open-ended question to understand the customer's need?</p>
-                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
-                            </div>
-                          </li>
-                        </ul>
-                      </section>
-
-                      <section class="question-group" aria-labelledby="product-value">
-                        <h4 id="product-value">Product &amp; Value</h4>
-                        <ul>
-                          <li>
-                            <span class="checkmark" aria-hidden="true">✓</span>
-                            <div>
-                              <p>Did the agent tailor the pitch to the customer's stated use case?</p>
-                              <div class="question-tags"><span>Likert</span><span>10 pts</span></div>
-                            </div>
-                          </li>
-                          <li>
-                            <span class="checkmark" aria-hidden="true">✓</span>
-                            <div>
-                              <p>Did the agent present at least two concrete outcomes (ROI, time saved, revenue lift)?</p>
-                              <div class="question-tags"><span>Binary</span><span>5 pts</span></div>
-                            </div>
-                          </li>
-                        </ul>
-                      </section>
-
-                      <section class="question-group" aria-labelledby="compliance">
-                        <h4 id="compliance">Compliance</h4>
-                        <ul>
-                          <li>
-                            <span class="checkmark" aria-hidden="true">✓</span>
-                            <div>
-                              <p>Did the agent obtain verbal consent before sharing pricing?</p>
-                              <div class="question-tags"><span>Binary</span><span>10 pts</span><span class="critical">Critical</span></div>
-                            </div>
-                          </li>
-                        </ul>
-                      </section>
+                      <div class="template-selector">
+                        <label for="template-dropdown">Template</label>
+                        <select id="template-dropdown" data-template-select>
+                          <option value="sales">Sales</option>
+                          <option value="support">Support</option>
+                          <option value="product">Product inquiry</option>
+                        </select>
+                      </div>
+                      <div data-template-questions></div>
                     </div>
                   </article>
 
@@ -1130,6 +1087,83 @@
         });
         bindQuestionInputs(card);
       }
+
+      // ── Template selector ──
+      const templateSelect = document.querySelector("[data-template-select]");
+      const templateQuestions = document.querySelector("[data-template-questions]");
+
+      const templates = {
+        sales: [
+          { section: "Opening & Discovery", questions: [
+            { text: "Did the agent introduce themselves by name and company within the first 15 seconds?", tags: ["Binary", "5 pts"] },
+            { text: "Did the agent ask at least one open-ended question to understand the customer's need?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Product & Value", questions: [
+            { text: "Did the agent tailor the pitch to the customer's stated use case?", tags: ["Likert", "10 pts"] },
+            { text: "Did the agent present at least two concrete outcomes (ROI, time saved, revenue lift)?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Compliance", questions: [
+            { text: "Did the agent obtain verbal consent before sharing pricing?", tags: ["Binary", "10 pts", "Critical"] },
+            { text: "Did the agent state the recording disclosure at the start of the call?", tags: ["Binary", "10 pts", "Critical"] },
+          ]},
+        ],
+        support: [
+          { section: "Opening", questions: [
+            { text: "Did the agent greet the customer and verify their identity within 30 seconds?", tags: ["Binary", "5 pts"] },
+            { text: "Did the agent confirm the purpose of the call?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Resolution", questions: [
+            { text: "Did the agent offer a relevant solution within the first 3 minutes?", tags: ["Likert", "10 pts"] },
+            { text: "Did the agent confirm the issue was resolved before closing?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Empathy & Tone", questions: [
+            { text: "Did the agent acknowledge the customer's frustration with empathy?", tags: ["Likert", "10 pts"] },
+            { text: "Did the agent avoid placing the customer on hold more than once without explanation?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Compliance", questions: [
+            { text: "Did the agent state the recording disclosure at the start of the call?", tags: ["Binary", "10 pts", "Critical"] },
+          ]},
+        ],
+        product: [
+          { section: "Discovery", questions: [
+            { text: "Did the agent ask about the customer's current workflow before presenting features?", tags: ["Binary", "5 pts"] },
+            { text: "Did the agent identify the customer's primary pain point?", tags: ["Likert", "10 pts"] },
+          ]},
+          { section: "Product Knowledge", questions: [
+            { text: "Did the agent accurately describe the product feature being discussed?", tags: ["Binary", "10 pts"] },
+            { text: "Did the agent connect at least one feature to the customer's stated need?", tags: ["Binary", "5 pts"] },
+          ]},
+          { section: "Next Steps", questions: [
+            { text: "Did the agent propose a clear next step (demo, trial, follow-up)?", tags: ["Binary", "5 pts"] },
+            { text: "Did the agent confirm the customer's availability before closing?", tags: ["Binary", "5 pts"] },
+          ]},
+        ],
+      };
+
+      function renderTemplate(key) {
+        const sections = templates[key];
+        templateQuestions.innerHTML = sections.map(s => `
+          <section class="question-group">
+            <h4>${s.section}</h4>
+            <ul>
+              ${s.questions.map(q => `
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>
+                  <div>
+                    <p>${q.text}</p>
+                    <div class="question-tags">
+                      ${q.tags.map(t => `<span${t === "Critical" ? ' class="critical"' : ""}>${t}</span>`).join("")}
+                    </div>
+                  </div>
+                </li>
+              `).join("")}
+            </ul>
+          </section>
+        `).join("");
+      }
+
+      renderTemplate("sales");
+      templateSelect.addEventListener("change", () => renderTemplate(templateSelect.value));
 
       questionList.querySelectorAll("[data-question-card]").forEach(bindQuestionCard);
       addQuestionButton.addEventListener("click", () => {
