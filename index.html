@@ -132,167 +132,149 @@
           </nav>
 
           <section class="overview-panel list-view" aria-labelledby="overview-title" data-qa-panel="overview">
-            <div class="overview-toolbar">
+
+            <div class="ov-toolbar">
               <div>
-                <h2 id="overview-title">Support Inbound -- EMEA</h2>
-                <p><span class="live-dot"></span>Active · 1,207 calls graded</p>
+                <h2 id="overview-title">Program Overview</h2>
+                <p>Last updated today · 4 scorecards active</p>
               </div>
               <div class="overview-actions">
-                <button class="secondary-action" type="button">Export CSV</button>
+                <label class="ov-range-label">Date range
+                  <select data-overview-range>
+                    <option value="30">Last 30 days</option>
+                    <option value="90">Last 90 days</option>
+                    <option value="180" selected>Last 6 months</option>
+                    <option value="365">Last year</option>
+                  </select>
+                </label>
                 <button class="publish-button" type="button">+ New scorecard</button>
               </div>
             </div>
 
-            <div class="overview-filters" aria-label="Overview filters">
-              <label>Date range
-                <select data-overview-range>
-                  <option value="30">Last 30 days</option>
-                  <option value="90">Last 90 days</option>
-                  <option value="180" selected>Last 6 months</option>
-                  <option value="365">Last year</option>
-                </select>
-              </label>
-              <label>Direction
-                <select data-agent-filter="direction">
-                  <option value="all">All calls</option>
-                  <option value="Inbound">Inbound</option>
-                  <option value="Outbound">Outbound</option>
-                </select>
-              </label>
-              <label>Team
-                <select data-agent-filter="team">
-                  <option value="all">All teams</option>
-                  <option value="APAC">APAC</option>
-                  <option value="EMEA">EMEA</option>
-                  <option value="Renewals">Renewals</option>
-                </select>
-              </label>
-              <label>Status
-                <select data-agent-filter="status">
-                  <option value="all">All statuses</option>
-                  <option value="High risk">High risk</option>
-                  <option value="Needs coaching">Needs coaching</option>
-                  <option value="On track">On track</option>
-                </select>
-              </label>
+            <!-- 4 top-line KPIs -->
+            <div class="ov-kpi-grid">
+              <article class="ov-kpi">
+                <span>Total calls graded</span>
+                <strong data-ov-total>2,077</strong>
+                <p>Across all active scorecards</p>
+              </article>
+              <article class="ov-kpi">
+                <span>Overall quality score</span>
+                <strong data-ov-score>80.4<small>%</small></strong>
+                <p data-ov-score-note>+2.1 pts vs previous period</p>
+              </article>
+              <article class="ov-kpi warn">
+                <span>Agents needing attention</span>
+                <strong data-ov-atrisk>3</strong>
+                <p>High risk or critical fail this period</p>
+              </article>
+              <article class="ov-kpi">
+                <span>Active scorecards</span>
+                <strong>2 <small style="font-size:14px;color:#68716c;">/ 4</small></strong>
+                <p>2 inactive or draft</p>
+              </article>
             </div>
 
-            <section class="trend-card" aria-labelledby="trend-title">
-              <div class="trend-heading">
+            <!-- Scorecard health table -->
+            <section class="ov-card" aria-labelledby="sc-health-title">
+              <div class="ov-card-heading">
                 <div>
-                  <h3 id="trend-title">Performance trend</h3>
-                  <p>Track how teams and agents are scoring over time.</p>
-                </div>
-                <span data-call-count>895 calls graded</span>
-              </div>
-
-              <div class="metric-grid">
-                <article class="metric-card positive">
-                  <span>Overall score</span>
-                  <strong data-overview-score>81.0<small>%</small></strong>
-                  <p>+3.9 pts vs previous period</p>
-                </article>
-                <article class="metric-card positive">
-                  <span>Consistency</span>
-                  <strong>78.4<small>%</small></strong>
-                  <p>Most agents are scoring within a healthy range</p>
-                </article>
-                <article class="metric-card warning">
-                  <span>Coaching gap</span>
-                  <strong>18<small> pts</small></strong>
-                  <p>Distance between top and lowest performers</p>
-                </article>
-                <article class="metric-card positive">
-                  <span>Top performer average</span>
-                  <strong>93.2<small>%</small></strong>
-                  <p>Use as a practical benchmark for coaching</p>
-                </article>
-              </div>
-
-              <div class="trend-chart" aria-label="Score trend chart">
-                <svg viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true">
-                  <g class="grid-lines">
-                    <path d="M0 30H900" />
-                    <path d="M0 85H900" />
-                    <path d="M0 140H900" />
-                    <path d="M0 195H900" />
-                  </g>
-                  <polyline class="line line-team" points="0,82 70,78 140,68 210,74 280,72 350,60 420,76 490,66 560,70 630,58 700,62 770,54 840,59 900,48" />
-                  <polyline class="line line-target" points="0,110 70,108 140,101 210,109 280,105 350,99 420,111 490,102 560,104 630,98 700,101 770,99 840,103 900,94" />
-                  <polyline class="line line-risk" points="0,144 70,140 140,137 210,150 280,141 350,134 420,132 490,148 560,136 630,138 700,145 770,133 840,134 900,128" />
-                </svg>
-                <div class="chart-legend">
-                  <span><i class="team"></i>Team score</span>
-                  <span><i class="target"></i>Expected level</span>
-                  <span><i class="risk"></i>Needs coaching line</span>
+                  <h3 id="sc-health-title">Scorecard health</h3>
+                  <p>How each scorecard is performing this period.</p>
                 </div>
               </div>
-            </section>
-
-            <section class="agent-table-card" aria-labelledby="agents-title">
-              <div class="table-heading">
-                <div>
-                  <h3 id="agents-title">Agent performance</h3>
-                  <p>Identify who is doing well, who needs coaching, and why.</p>
-                </div>
-                <input type="search" placeholder="Search agents" aria-label="Search agents" data-agent-search />
-              </div>
-
-              <table class="agent-table">
+              <table class="ov-table">
                 <thead>
                   <tr>
-                    <th>Agent</th>
-                    <th>Team</th>
-                    <th>Trend</th>
-                    <th>Weakest area</th>
+                    <th>Scorecard</th>
                     <th>Status</th>
-                    <th>Score</th>
+                    <th>Calls graded</th>
+                    <th>Avg score</th>
+                    <th>Trend</th>
+                    <th>Critical fails</th>
                   </tr>
                 </thead>
-                <tbody data-agent-table>
-                  <tr data-team="APAC" data-direction="Inbound" data-status="High risk">
-                    <td><span class="avatar">NA</span><strong>Noor Ahmed</strong><small>5 calls</small></td>
-                    <td>APAC Inbound</td>
-                    <td>Declining</td>
-                    <td>Closing &amp; Next Steps</td>
-                    <td><span class="agent-tag risk">High risk</span><span class="agent-tag fail">1 critical fail</span></td>
-                    <td><strong class="score-pill low">66%</strong></td>
+                <tbody>
+                  <tr>
+                    <td><strong>Sales Outbound — APAC</strong></td>
+                    <td><span class="status active">Active</span></td>
+                    <td>842</td>
+                    <td><strong class="score-pill high">83%</strong></td>
+                    <td><span class="trend-badge up">↑ Improving</span></td>
+                    <td><span class="fail-count">14</span></td>
                   </tr>
-                  <tr data-team="EMEA" data-direction="Outbound" data-status="Needs coaching">
-                    <td><span class="avatar">TO</span><strong>Tom O'Brien</strong><small>5 calls</small></td>
-                    <td>EMEA Outbound</td>
-                    <td>Declining</td>
-                    <td>Closing &amp; Next Steps</td>
-                    <td><span class="agent-tag coach">Needs coaching</span><span class="agent-tag fail">1 critical fail</span></td>
-                    <td><strong class="score-pill mid">75%</strong></td>
+                  <tr>
+                    <td><strong>Sales Outbound — EMEA</strong></td>
+                    <td><span class="status active">Active</span></td>
+                    <td>915</td>
+                    <td><strong class="score-pill mid">79%</strong></td>
+                    <td><span class="trend-badge down">↓ Declining</span></td>
+                    <td><span class="fail-count warn">22</span></td>
                   </tr>
-                  <tr data-team="APAC" data-direction="Outbound" data-status="On track">
-                    <td><span class="avatar">PS</span><strong>Priya Shah</strong><small>4 calls</small></td>
-                    <td>APAC Outbound</td>
-                    <td>Stable</td>
-                    <td>Compliance</td>
-                    <td><span class="agent-tag good">Doing well</span></td>
-                    <td><strong class="score-pill high">82%</strong></td>
+                  <tr>
+                    <td><strong>Sales Inbound — North America</strong></td>
+                    <td><span class="status inactive">Inactive</span></td>
+                    <td>320</td>
+                    <td><strong class="score-pill mid">74%</strong></td>
+                    <td><span class="trend-badge flat">→ Stable</span></td>
+                    <td><span class="fail-count">9</span></td>
                   </tr>
-                  <tr data-team="APAC" data-direction="Inbound" data-status="Needs coaching">
-                    <td><span class="avatar">AR</span><strong>Ana Rossi</strong><small>4 calls</small></td>
-                    <td>APAC Inbound</td>
-                    <td>Stable</td>
-                    <td>Opening &amp; Discovery</td>
-                    <td><span class="agent-tag coach">Below team average</span></td>
-                    <td><strong class="score-pill low">66%</strong></td>
-                  </tr>
-                  <tr data-team="Renewals" data-direction="Outbound" data-status="On track">
-                    <td><span class="avatar">CM</span><strong>Carlos Mendes</strong><small>2 calls</small></td>
-                    <td>Renewals</td>
-                    <td>Improving</td>
-                    <td>Objection Handling</td>
-                    <td><span class="agent-tag good">Improving</span></td>
-                    <td><strong class="score-pill mid">77%</strong></td>
+                  <tr>
+                    <td><strong>Support Outbound — Latin America</strong></td>
+                    <td><span class="status draft">Draft</span></td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
                   </tr>
                 </tbody>
               </table>
             </section>
+
+            <!-- Agents needing attention -->
+            <section class="ov-card" aria-labelledby="atrisk-title">
+              <div class="ov-card-heading">
+                <div>
+                  <h3 id="atrisk-title">Agents needing attention</h3>
+                  <p>Flagged across all scorecards this period.</p>
+                </div>
+              </div>
+              <table class="ov-table">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <th>Scorecard</th>
+                    <th>Issue</th>
+                    <th>Score</th>
+                    <th>Last graded</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="avatar" style="display:inline-grid;width:28px;height:28px;font-size:10px;margin-right:8px;">NA</span><strong>Noor Ahmed</strong></td>
+                    <td>Sales Outbound — APAC</td>
+                    <td><span class="agent-tag risk">High risk</span><span class="agent-tag fail">1 critical fail</span></td>
+                    <td><strong class="score-pill low">66%</strong></td>
+                    <td>Apr 20, 2026</td>
+                  </tr>
+                  <tr>
+                    <td><span class="avatar" style="display:inline-grid;width:28px;height:28px;font-size:10px;margin-right:8px;">TO</span><strong>Tom O'Brien</strong></td>
+                    <td>Sales Outbound — EMEA</td>
+                    <td><span class="agent-tag coach">Needs coaching</span><span class="agent-tag fail">1 critical fail</span></td>
+                    <td><strong class="score-pill mid">75%</strong></td>
+                    <td>Apr 22, 2026</td>
+                  </tr>
+                  <tr>
+                    <td><span class="avatar" style="display:inline-grid;width:28px;height:28px;font-size:10px;margin-right:8px;">AR</span><strong>Ana Rossi</strong></td>
+                    <td>Sales Outbound — APAC</td>
+                    <td><span class="agent-tag coach">Below team average</span></td>
+                    <td><strong class="score-pill low">66%</strong></td>
+                    <td>Apr 19, 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
           </section>
 
           <section class="scorecard-panel list-view" aria-labelledby="scorecards-title" data-qa-panel="scorecards" hidden>
@@ -999,17 +981,27 @@
       });
 
       const overviewByRange = {
-        30: ["84.2%", "146 calls graded"],
-        90: ["82.6%", "412 calls graded"],
-        180: ["81.0%", "895 calls graded"],
-        365: ["79.8%", "1,207 calls graded"]
+        30:  { total: "412",   score: "82.6", note: "+1.2 pts vs previous period", atRisk: "2" },
+        90:  { total: "1,104", score: "81.3", note: "+1.8 pts vs previous period", atRisk: "3" },
+        180: { total: "2,077", score: "80.4", note: "+2.1 pts vs previous period", atRisk: "3" },
+        365: { total: "3,284", score: "78.9", note: "+0.6 pts vs previous period", atRisk: "5" },
       };
 
-      overviewRange.addEventListener("change", () => {
-        const [score, calls] = overviewByRange[overviewRange.value];
-        overviewScore.innerHTML = `${score.replace("%", "")}<small>%</small>`;
-        callCount.textContent = calls;
-      });
+      const ovTotal    = document.querySelector("[data-ov-total]");
+      const ovScore    = document.querySelector("[data-ov-score]");
+      const ovScoreNote= document.querySelector("[data-ov-score-note]");
+      const ovAtRisk   = document.querySelector("[data-ov-atrisk]");
+      const overviewRange = document.querySelector("[data-overview-range]");
+
+      if (overviewRange) {
+        overviewRange.addEventListener("change", () => {
+          const d = overviewByRange[overviewRange.value];
+          if (ovTotal)     ovTotal.textContent = d.total;
+          if (ovScore)     ovScore.innerHTML   = `${d.score}<small>%</small>`;
+          if (ovScoreNote) ovScoreNote.textContent = d.note;
+          if (ovAtRisk)    ovAtRisk.textContent = d.atRisk;
+        });
+      }
 
       function filterAgents() {
         const selected = Object.fromEntries([...agentFilters].map((filter) => [filter.dataset.agentFilter, filter.value]));
