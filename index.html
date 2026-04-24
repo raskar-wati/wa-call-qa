@@ -852,9 +852,6 @@
       const closeBuilder = document.querySelector("[data-close-builder]");
       const qaTabs = document.querySelectorAll("[data-qa-tab]");
       const qaPanels = document.querySelectorAll("[data-qa-panel]");
-      const overviewRange = document.querySelector("[data-overview-range]");
-      const overviewScore = document.querySelector("[data-overview-score]");
-      const callCount = document.querySelector("[data-call-count]");
       const agentFilters = document.querySelectorAll("[data-agent-filter]");
       const agentSearch = document.querySelector("[data-agent-search]");
       const agentRows = document.querySelectorAll("[data-agent-table] tr");
@@ -1003,18 +1000,6 @@
         });
       }
 
-      function filterAgents() {
-        const selected = Object.fromEntries([...agentFilters].map((filter) => [filter.dataset.agentFilter, filter.value]));
-        const query = agentSearch.value.trim().toLowerCase();
-        agentRows.forEach((row) => {
-          const matchesFilters = Object.entries(selected).every(([key, value]) => value === "all" || row.dataset[key] === value);
-          const matchesSearch = !query || row.textContent.toLowerCase().includes(query);
-          row.hidden = !(matchesFilters && matchesSearch);
-        });
-      }
-
-      agentFilters.forEach((filter) => filter.addEventListener("change", filterAgents));
-      agentSearch.addEventListener("input", filterAgents);
       stepItems.forEach((step) => {
         step.querySelector("button").addEventListener("click", () => {
           const target = step.dataset.step;
