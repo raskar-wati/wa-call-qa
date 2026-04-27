@@ -12,8 +12,8 @@ const builderHelp      = document.querySelector("[data-builder-help]");
 const testPanel        = document.querySelector("[data-test-panel]");
 const directionButtons = document.querySelectorAll(".segmented-control button");
 const teamSearch       = document.querySelector(".team-search input");
-const questionList     = document.querySelector("[data-question-list]");
-const addQuestionButton= document.querySelector("[data-add-question]");
+const sectionList      = document.querySelector("[data-section-list]");
+const addSectionButton = document.querySelector("[data-add-section]");
 const testTabs         = document.querySelectorAll("[data-test-tab]");
 const recentCallControls = document.querySelector("[data-recent-call-controls]");
 const pasteCallControls  = document.querySelector("[data-paste-call-controls]");
@@ -216,9 +216,13 @@ function questionBodyTemplate(index) {
   `;
 }
 
+function allQuestionCards() {
+  return sectionList.querySelectorAll("[data-question-card]");
+}
+
 function ensureQuestionBody(card) {
   if (card.querySelector(".editor-card-body")) return;
-  const index = [...questionList.querySelectorAll("[data-question-card]")].indexOf(card) + 1;
+  const index = [...allQuestionCards()].indexOf(card) + 1;
   card.querySelector(".editor-card-header").insertAdjacentHTML("afterend", questionBodyTemplate(index));
   bindQuestionInputs(card);
 }
@@ -233,7 +237,7 @@ function updateQuestionSummary(card) {
 }
 
 function renumberQuestions() {
-  questionList.querySelectorAll("[data-question-card]").forEach((card, index) => {
+  allQuestionCards().forEach((card, index) => {
     card.querySelector(".question-number").textContent = index + 1;
     card.querySelectorAll('input[type="radio"]').forEach(input => {
       if (input.name.startsWith("answer-type"))     input.name = `answer-type-${index + 1}`;
@@ -244,7 +248,7 @@ function renumberQuestions() {
 
 function expandQuestion(card) {
   ensureQuestionBody(card);
-  questionList.querySelectorAll("[data-question-card]").forEach(item => {
+  allQuestionCards().forEach(item => {
     const isTarget = item === card;
     item.classList.toggle("expanded", isTarget);
     item.querySelector(".question-toggle").setAttribute("aria-expanded", String(isTarget));
@@ -267,19 +271,21 @@ function bindQuestionInputs(card) {
 function bindQuestionCard(card) {
   card.querySelector(".question-toggle").addEventListener("click", () => expandQuestion(card));
   card.querySelector(".delete-question").addEventListener("click", () => {
-    if (questionList.querySelectorAll("[data-question-card]").length === 1) return;
+    if (allQuestionCards().length === 1) return;
     const wasExpanded = card.classList.contains("expanded");
     card.remove();
     renumberQuestions();
-    if (wasExpanded) expandQuestion(questionList.querySelector("[data-question-card]"));
+    if (wasExpanded) {
+      const first = allQuestionCards()[0];
+      if (first) expandQuestion(first);
+    }
   });
   bindQuestionInputs(card);
 }
 
-questionList.querySelectorAll("[data-question-card]").forEach(bindQuestionCard);
-
-addQuestionButton.addEventListener("click", () => {
-  const next    = questionList.querySelectorAll("[data-question-card]").length + 1;
+// ── Question card factory ──
+function makeQuestionCard() {
+  const next    = allQuestionCards().length + 1;
   const article = document.createElement("article");
   article.className        = "editor-card";
   article.dataset.questionCard = "";
@@ -299,10 +305,52 @@ addQuestionButton.addEventListener("click", () => {
       <span><strong data-summary-points>5</strong> pts</span>
     </footer>
   `;
-  questionList.append(article);
-  bindQuestionCard(article);
-  expandQuestion(article);
+  return article;
+}
+
+// ── Section binding ──
+function bindSection(sectionEl) {
+  const addQuestionBtn = sectionEl.querySelector("[data-add-question]");
+  const deleteBtn      = sectionEl.querySelector(".delete-section");
+  const questionBody   = sectionEl.querySelector("[data-question-list]");
+
+  addQuestionBtn.addEventListener("click", () => {
+    const article = makeQuestionCard();
+    questionBody.append(article);
+    bindQuestionCard(article);
+    expandQuestion(article);
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    if (sectionList.querySelectorAll("[data-question-section]").length === 1) return;
+    sectionEl.remove();
+    renumberQuestions();
+  });
+}
+
+// ── Add section button ──
+addSectionButton.addEventListener("click", () => {
+  const sectionEl = document.createElement("div");
+  sectionEl.className = "question-section";
+  sectionEl.dataset.questionSection = "";
+  sectionEl.innerHTML = `
+    <div class="question-section-header">
+      <input class="section-name-input" type="text" value="New Section" data-section-name aria-label="Section name" />
+      <button class="delete-section" type="button" aria-label="Delete section">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/></svg>
+      </button>
+    </div>
+    <div class="question-section-body" data-question-list></div>
+    <button class="add-question-btn" type="button" data-add-question>+ Add question</button>
+  `;
+  sectionList.append(sectionEl);
+  bindSection(sectionEl);
+  sectionEl.querySelector("[data-section-name]").select();
 });
+
+// ── Initial bind ──
+document.querySelectorAll("[data-question-section]").forEach(bindSection);
+document.querySelectorAll("[data-question-card]").forEach(bindQuestionCard);
 
 // ── Template selector ──
 function renderTemplate(key) {

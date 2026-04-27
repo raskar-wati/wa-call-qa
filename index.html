@@ -526,109 +526,130 @@
               <section class="build-panel builder-panel" aria-labelledby="build-title" data-builder-panel="build" hidden>
                 <div class="build-heading">
                   <h2 id="build-title">Build</h2>
-                  <button class="secondary-action add-question" type="button" data-add-question>+ Add question</button>
+                  <button class="secondary-action" type="button" data-add-section>+ Add section</button>
                 </div>
 
-                <div class="question-editor-list" data-question-list>
-                  <article class="editor-card expanded" data-question-card>
-                    <header class="editor-card-header">
-                      <button class="question-toggle" type="button" aria-expanded="true">
-                        <span class="question-number">1</span>
-                        <span class="question-title" data-question-title>Did the agent introduce themselves by name and company within the first 15 seconds?</span>
-                      </button>
-                      <button class="delete-question" type="button" aria-label="Delete question">
+                <div class="question-editor-sections" data-section-list>
+
+                  <!-- Section: Opening & Discovery -->
+                  <div class="question-section" data-question-section>
+                    <div class="question-section-header">
+                      <input class="section-name-input" type="text" value="Opening &amp; Discovery" data-section-name aria-label="Section name" />
+                      <button class="delete-section" type="button" aria-label="Delete section">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
                       </button>
-                    </header>
-
-                    <div class="editor-card-body">
-                      <fieldset class="choice-group">
-                        <legend>Answer type</legend>
-                        <label><input type="radio" name="answer-type-1" value="Binary" checked />Binary</label>
-                        <label><input type="radio" name="answer-type-1" value="Likert" />Likert</label>
-                      </fieldset>
-
-                      <fieldset class="choice-group">
-                        <legend>Matching method</legend>
-                        <label><input type="radio" name="matching-method-1" value="AI Test" checked />AI Test</label>
-                        <label><input type="radio" name="matching-method-1" value="Keyword Match" />Keyword Match</label>
-                        <label><input type="radio" name="matching-method-1" value="Hybrid" />Hybrid</label>
-                      </fieldset>
-
-                      <label class="field answer-definition">
-                        <span>Answer definitions</span>
-                        <textarea data-definition-input placeholder='e.g. "Agent stated their first name and company name within the first 15 seconds."'></textarea>
-                      </label>
-                      <div class="definition-helper">
-                        <p>Yes - what observable behavior qualifies as Yes?</p>
-                        <p>No - implicit if the Yes criteria are not met, the answer is No.</p>
-                        <button class="refine-button" type="button" data-refine-answer>+ Refine with AI</button>
-                      </div>
-
-                      <div class="score-assignment">
-                        <p>Score assignment</p>
-                        <label>Yes <input type="number" value="10" min="0" data-score-yes /> pts</label>
-                        <label>No <input type="number" value="0" min="0" data-score-no /> pts</label>
-                      </div>
                     </div>
+                    <div class="question-section-body" data-question-list>
+                      <article class="editor-card expanded" data-question-card>
+                        <header class="editor-card-header">
+                          <button class="question-toggle" type="button" aria-expanded="true">
+                            <span class="question-number">1</span>
+                            <span class="question-title" data-question-title>Did the agent introduce themselves by name and company within the first 15 seconds?</span>
+                          </button>
+                          <button class="delete-question" type="button" aria-label="Delete question">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                          </button>
+                        </header>
+                        <div class="editor-card-body">
+                          <fieldset class="choice-group">
+                            <legend>Answer type</legend>
+                            <label><input type="radio" name="answer-type-1" value="Binary" checked />Binary</label>
+                            <label><input type="radio" name="answer-type-1" value="Likert" />Likert</label>
+                          </fieldset>
+                          <fieldset class="choice-group">
+                            <legend>Matching method</legend>
+                            <label><input type="radio" name="matching-method-1" value="AI Test" checked />AI Test</label>
+                            <label><input type="radio" name="matching-method-1" value="Keyword Match" />Keyword Match</label>
+                            <label><input type="radio" name="matching-method-1" value="Hybrid" />Hybrid</label>
+                          </fieldset>
+                          <label class="field answer-definition">
+                            <span>Answer definitions</span>
+                            <textarea data-definition-input placeholder='e.g. "Agent stated their first name and company name within the first 15 seconds."'></textarea>
+                          </label>
+                          <div class="definition-helper">
+                            <p>Yes - what observable behavior qualifies as Yes?</p>
+                            <p>No - implicit if the Yes criteria are not met, the answer is No.</p>
+                            <button class="refine-button" type="button" data-refine-answer>+ Refine with AI</button>
+                          </div>
+                          <div class="score-assignment">
+                            <p>Score assignment</p>
+                            <label>Yes <input type="number" value="10" min="0" data-score-yes /> pts</label>
+                            <label>No <input type="number" value="0" min="0" data-score-no /> pts</label>
+                          </div>
+                        </div>
+                        <footer class="editor-card-summary">
+                          <span data-summary-type>Binary</span>
+                          <span data-summary-method>AI Test</span>
+                          <span><strong data-summary-points>10</strong> pts</span>
+                        </footer>
+                      </article>
 
-                    <footer class="editor-card-summary">
-                      <span data-summary-type>Binary</span>
-                      <span data-summary-method>AI Test</span>
-                      <span><strong data-summary-points>10</strong> pts</span>
-                    </footer>
-                  </article>
+                      <article class="editor-card" data-question-card>
+                        <header class="editor-card-header">
+                          <button class="question-toggle" type="button" aria-expanded="false">
+                            <span class="question-number">2</span>
+                            <span class="question-title" data-question-title>Did the agent ask if customer could hear them clearly within the first 30 seconds?</span>
+                          </button>
+                          <button class="delete-question" type="button" aria-label="Delete question">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                          </button>
+                        </header>
+                        <footer class="editor-card-summary">
+                          <span data-summary-type>Binary</span>
+                          <span data-summary-method>LLM Eval</span>
+                          <span><strong data-summary-points>5</strong> pts</span>
+                        </footer>
+                      </article>
 
-                  <article class="editor-card" data-question-card>
-                    <header class="editor-card-header">
-                      <button class="question-toggle" type="button" aria-expanded="false">
-                        <span class="question-number">2</span>
-                        <span class="question-title" data-question-title>Did the agent ask if customer could hear them clearly within the first 30 seconds?</span>
-                      </button>
-                      <button class="delete-question" type="button" aria-label="Delete question">
+                      <article class="editor-card" data-question-card>
+                        <header class="editor-card-header">
+                          <button class="question-toggle" type="button" aria-expanded="false">
+                            <span class="question-number">3</span>
+                            <span class="question-title" data-question-title>Did the agent confirm the purpose of the call during the first minute?</span>
+                          </button>
+                          <button class="delete-question" type="button" aria-label="Delete question">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                          </button>
+                        </header>
+                        <footer class="editor-card-summary">
+                          <span data-summary-type>Binary</span>
+                          <span data-summary-method>LLM Eval</span>
+                          <span><strong data-summary-points>5</strong> pts</span>
+                        </footer>
+                      </article>
+                    </div>
+                    <button class="add-question-btn" type="button" data-add-question>+ Add question</button>
+                  </div>
+
+                  <!-- Section: Empathy & Tone -->
+                  <div class="question-section" data-question-section>
+                    <div class="question-section-header">
+                      <input class="section-name-input" type="text" value="Empathy &amp; Tone" data-section-name aria-label="Section name" />
+                      <button class="delete-section" type="button" aria-label="Delete section">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
                       </button>
-                    </header>
-                    <footer class="editor-card-summary">
-                      <span data-summary-type>Binary</span>
-                      <span data-summary-method>LLM Eval</span>
-                      <span><strong data-summary-points>5</strong> pts</span>
-                    </footer>
-                  </article>
+                    </div>
+                    <div class="question-section-body" data-question-list>
+                      <article class="editor-card" data-question-card>
+                        <header class="editor-card-header">
+                          <button class="question-toggle" type="button" aria-expanded="false">
+                            <span class="question-number">4</span>
+                            <span class="question-title" data-question-title>Did the agent show empathy toward the customer's issue within the first 2 minutes?</span>
+                          </button>
+                          <button class="delete-question" type="button" aria-label="Delete question">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
+                          </button>
+                        </header>
+                        <footer class="editor-card-summary">
+                          <span data-summary-type>Binary</span>
+                          <span data-summary-method>AI Test</span>
+                          <span><strong data-summary-points>5</strong> pts</span>
+                        </footer>
+                      </article>
+                    </div>
+                    <button class="add-question-btn" type="button" data-add-question>+ Add question</button>
+                  </div>
 
-                  <article class="editor-card" data-question-card>
-                    <header class="editor-card-header">
-                      <button class="question-toggle" type="button" aria-expanded="false">
-                        <span class="question-number">3</span>
-                        <span class="question-title" data-question-title>Did the agent confirm the purpose of the call during the first minute?</span>
-                      </button>
-                      <button class="delete-question" type="button" aria-label="Delete question">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
-                      </button>
-                    </header>
-                    <footer class="editor-card-summary">
-                      <span data-summary-type>Binary</span>
-                      <span data-summary-method>LLM Eval</span>
-                      <span><strong data-summary-points>5</strong> pts</span>
-                    </footer>
-                  </article>
-
-                  <article class="editor-card" data-question-card>
-                    <header class="editor-card-header">
-                      <button class="question-toggle" type="button" aria-expanded="false">
-                        <span class="question-number">4</span>
-                        <span class="question-title" data-question-title>Did the agent show empathy toward the customer's issue within the first 2 minutes?</span>
-                      </button>
-                      <button class="delete-question" type="button" aria-label="Delete question">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /><path d="M10 11v5" /><path d="M14 11v5" /></svg>
-                      </button>
-                    </header>
-                    <footer class="editor-card-summary">
-                      <span data-summary-type>Binary</span>
-                      <span data-summary-method>AI Test</span>
-                      <span><strong data-summary-points>5</strong> pts</span>
-                    </footer>
-                  </article>
                 </div>
               </section>
 
