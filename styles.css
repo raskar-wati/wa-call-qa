@@ -1604,6 +1604,68 @@ body.is-resizing {
   padding: 8px 10px;
   background: #f5f7f6;
   border-bottom: 1px solid var(--line-strong);
+  transition: background 0.15s;
+}
+
+/* Section collapse button */
+.section-collapse-btn {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: #8fa39a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.section-collapse-btn:hover {
+  color: #1a1f1d;
+  background: #e8ede9;
+}
+
+.section-collapse-btn .chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.section-collapse-btn[aria-expanded="false"] .chevron {
+  transform: rotate(-90deg);
+}
+
+/* Count badge — only visible when section is collapsed */
+.section-q-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: #8fa39a;
+  background: #e8ede9;
+  padding: 1px 6px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.question-section.collapsed .section-q-count {
+  opacity: 1;
+}
+
+/* Hide body + add-question when collapsed */
+.question-section.collapsed .question-section-body,
+.question-section.collapsed .add-question-btn {
+  display: none;
+}
+
+/* No bottom border on section header when collapsed */
+.question-section.collapsed .question-section-header {
+  border-bottom: none;
+  border-radius: 9px;
 }
 
 .section-name-input {
@@ -1732,6 +1794,31 @@ body.is-resizing {
   cursor: pointer;
 }
 
+/* Expand/collapse chevron inside question row */
+.toggle-chevron {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  margin-top: 3px;
+  color: #b0bdb7;
+  transition: transform 0.18s ease, color 0.15s;
+}
+
+.question-toggle:hover .toggle-chevron {
+  color: #68716c;
+}
+
+.question-toggle[aria-expanded="true"] .toggle-chevron {
+  transform: rotate(180deg);
+  color: var(--green);
+}
+
+/* Subtle hover state on collapsed question rows */
+.editor-card:not(.expanded) .editor-card-header:hover {
+  background: #fafbfa;
+}
+
 .question-number {
   display: grid;
   flex: 0 0 22px;
@@ -1746,6 +1833,7 @@ body.is-resizing {
 }
 
 .question-title {
+  flex: 1;
   padding-top: 1px;
   color: #2d342f;
   font-size: 13px;

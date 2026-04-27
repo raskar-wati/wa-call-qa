@@ -269,17 +269,30 @@ function bindQuestionInputs(card) {
 }
 
 function bindQuestionCard(card) {
-  card.querySelector(".question-toggle").addEventListener("click", () => expandQuestion(card));
+  const toggle = card.querySelector(".question-toggle");
+
+  // Inject expand chevron once
+  if (!toggle.querySelector(".toggle-chevron")) {
+    toggle.insertAdjacentHTML("beforeend",
+      `<svg class="toggle-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`
+    );
+  }
+
+  toggle.addEventListener("click", () => expandQuestion(card));
+
   card.querySelector(".delete-question").addEventListener("click", () => {
     if (allQuestionCards().length === 1) return;
-    const wasExpanded = card.classList.contains("expanded");
+    const parentSection = card.closest("[data-question-section]");
+    const wasExpanded   = card.classList.contains("expanded");
     card.remove();
     renumberQuestions();
+    if (parentSection) updateSectionCount(parentSection);
     if (wasExpanded) {
       const first = allQuestionCards()[0];
       if (first) expandQuestion(first);
     }
   });
+
   bindQuestionInputs(card);
 }
 
@@ -294,6 +307,7 @@ function makeQuestionCard() {
       <button class="question-toggle" type="button" aria-expanded="false">
         <span class="question-number">${next}</span>
         <span class="question-title" data-question-title>New quality check question?</span>
+        <svg class="toggle-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
       <button class="delete-question" type="button" aria-label="Delete question">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/></svg>
@@ -308,24 +322,59 @@ function makeQuestionCard() {
   return article;
 }
 
+// ── Section helpers ──
+function updateSectionCount(sectionEl) {
+  const count = sectionEl.querySelectorAll("[data-question-card]").length;
+  const badge = sectionEl.querySelector(".section-q-count");
+  if (badge) badge.textContent = `${count} Q`;
+}
+
+const CHEVRON_SVG = `<svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`;
+
 // ── Section binding ──
 function bindSection(sectionEl) {
+  const header       = sectionEl.querySelector(".question-section-header");
   const addQuestionBtn = sectionEl.querySelector("[data-add-question]");
-  const deleteBtn      = sectionEl.querySelector(".delete-section");
-  const questionBody   = sectionEl.querySelector("[data-question-list]");
+  const deleteBtn    = sectionEl.querySelector(".delete-section");
+  const questionBody = sectionEl.querySelector("[data-question-list]");
 
+  // Inject collapse button + count badge once
+  if (!header.querySelector(".section-collapse-btn")) {
+    header.insertAdjacentHTML("afterbegin",
+      `<button class="section-collapse-btn" type="button" aria-expanded="true" aria-label="Collapse section">${CHEVRON_SVG}</button>`
+    );
+    deleteBtn.insertAdjacentHTML("beforebegin", `<span class="section-q-count" aria-hidden="true"></span>`);
+  }
+
+  const collapseBtn = header.querySelector(".section-collapse-btn");
+
+  // Toggle collapse
+  collapseBtn.addEventListener("click", () => {
+    const isOpen = collapseBtn.getAttribute("aria-expanded") === "true";
+    collapseBtn.setAttribute("aria-expanded", String(!isOpen));
+    sectionEl.classList.toggle("collapsed", isOpen);
+  });
+
+  // Add question to this section
   addQuestionBtn.addEventListener("click", () => {
     const article = makeQuestionCard();
     questionBody.append(article);
     bindQuestionCard(article);
     expandQuestion(article);
+    updateSectionCount(sectionEl);
+    // Auto-expand section when a question is added
+    collapseBtn.setAttribute("aria-expanded", "true");
+    sectionEl.classList.remove("collapsed");
   });
 
+  // Delete section
   deleteBtn.addEventListener("click", () => {
     if (sectionList.querySelectorAll("[data-question-section]").length === 1) return;
     sectionEl.remove();
     renumberQuestions();
   });
+
+  updateSectionCount(sectionEl);
 }
 
 // ── Add section button ──
